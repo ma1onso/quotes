@@ -22,15 +22,20 @@
 public class MainWindow : Gtk.ApplicationWindow {
 	protected Gtk.Label quote_text;
 	protected Gtk.Label quote_author;
-	protected Gtk.Label quote_url;
+	protected Gtk.LinkButton quote_url;
 	protected Gtk.Stack quote_stack;
 	protected Gtk.Spinner spinner;
+	protected Gtk.ToolButton refresh_tool_button;
+	protected Gtk.ToolButton share_tool_button;
 	protected bool searching = false;
 
     public signal void search_begin ();	
     public signal void search_end (Json.Object? url, Error? e);
 
-    protected void on_search_begin () {    	
+    protected void on_search_begin () {
+		this.refresh_tool_button.sensitive = false;
+		this.share_tool_button.sensitive = false;
+
     	if (!this.quote_stack.visible) {
     		this.quote_stack.set_visible (true);
     	}
@@ -40,13 +45,21 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 
     protected void on_search_end (Json.Object? quote, Error? error) {
+		this.refresh_tool_button.sensitive = true;
+		this.share_tool_button.sensitive = true;
+
     	this.searching = false;
 	    if (error != null) {
 	    	return;
 	    }
 	    this.quote_text.set_text (quote.get_string_member ("quoteText"));
-	    this.quote_author.set_text (quote.get_string_member ("quoteAuthor"));
-	    this.quote_url.set_text (quote.get_string_member ("quoteLink"));
+		if (quote.get_string_member ("quoteAuthor") != "") {
+			this.quote_author.set_text (quote.get_string_member ("quoteAuthor"));
+		} else {
+			this.quote_author.set_text ("Anonymous author");
+		}
+
+	    this.quote_url.set_uri (quote.get_string_member ("quoteLink"));
 
 	    this.quote_stack.set_visible_child_name ("quote_box");
     }
@@ -66,20 +79,24 @@ public class MainWindow : Gtk.ApplicationWindow {
 
 		// Initialize widgets
 		this.quote_text = new Gtk.Label ("...");
+		this.quote_text.set_selectable (true);
 		this.quote_author = new Gtk.Label ("...");
-		this.quote_url = new Gtk.Label ("...");
+		this.quote_author.set_selectable (true);
+		this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
 		this.quote_stack = new Gtk.Stack ();
 		this.spinner = new Gtk.Spinner ();
 
 		// Create Toolbar
-	    var toolbar = new Gtk.Toolbar ();
+	    Gtk.HeaderBar toolbar = new Gtk.HeaderBar ();
+		toolbar.set_title ("Quotes");
+		this.set_titlebar (toolbar);
+		toolbar.show_close_button = true;
 
 		// Create Main Box
 		Gtk.Box quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 		quote_box.set_spacing (10);
 
 		// Add widgets to Main Box
-	    quote_box.pack_start (toolbar, false, false, 0);
 		quote_box.pack_start (quote_text);
 		quote_box.pack_start (quote_author);
 		quote_box.pack_start (quote_url);
@@ -88,14 +105,15 @@ public class MainWindow : Gtk.ApplicationWindow {
 		Gtk.Image refresh_icon = new Gtk.Image.from_icon_name (
 			"view-refresh", Gtk.IconSize.SMALL_TOOLBAR
 		);
-		Gtk.ToolButton refresh_tool_button = new Gtk.ToolButton (refresh_icon, null);
+		refresh_tool_button = new Gtk.ToolButton (refresh_icon, null);
 		refresh_tool_button.is_important = true;
+		refresh_tool_button.set_tooltip_text ("Get another random quote");
 		toolbar.add (refresh_tool_button);
 
 		Gtk.Image copy_icon = new Gtk.Image.from_icon_name (
 			"edit-copy", Gtk.IconSize.SMALL_TOOLBAR
 		);
-		Gtk.ToolButton share_tool_button = new Gtk.ToolButton (copy_icon, null);
+		share_tool_button = new Gtk.ToolButton (copy_icon, null);
 		toolbar.add (share_tool_button);
 
 		refresh_tool_button.clicked.connect ( () => {
@@ -114,6 +132,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
 	}
 
+	// TODO: Move this logic method
 	protected async void quote_query () {
 		// TODO: Include another api source: http://quotesondesign.com/wp-json/posts
 		this.search_begin ();
