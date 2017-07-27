@@ -25,10 +25,12 @@ public class MainWindow : Gtk.ApplicationWindow {
 	protected Gtk.LinkButton quote_url;
 	protected Gtk.Stack quote_stack;
 	protected Gtk.Spinner spinner;
+	protected Gtk.HeaderBar toolbar;
 	protected Gtk.ToolButton refresh_tool_button;
 	protected Gtk.ToolButton share_tool_button;
 	protected bool searching = false;
-
+	
+    // signals
     public signal void search_begin ();	
     public signal void search_end (Json.Object? url, Error? e);
 
@@ -47,23 +49,74 @@ public class MainWindow : Gtk.ApplicationWindow {
     protected void on_search_end (Json.Object? quote, Error? error) {
 		this.refresh_tool_button.sensitive = true;
 		this.share_tool_button.sensitive = true;
-
     	this.searching = false;
+
 	    if (error != null) {
 	    	return;
 	    }
+	    
+	    // Set quote text
 	    this.quote_text.set_text (quote.get_string_member ("quoteText"));
+	    // Set quote author
 		if (quote.get_string_member ("quoteAuthor") != "") {
 			this.quote_author.set_text (quote.get_string_member ("quoteAuthor"));
 		} else {
 			this.quote_author.set_text ("Anonymous author");
 		}
-
+		// Set quote uri
 	    this.quote_url.set_uri (quote.get_string_member ("quoteLink"));
 
 	    this.quote_stack.set_visible_child_name ("quote_box");
     }
+	// End signals
+	
+	private void initialize_widgets () {
+		this.quote_text = new Gtk.Label ("...");
+		this.quote_text.set_selectable (true);
 
+		this.quote_author = new Gtk.Label ("...");
+		this.quote_author.set_selectable (true);
+
+		this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
+
+		this.quote_stack = new Gtk.Stack ();
+
+		this.spinner = new Gtk.Spinner ();
+
+		this.toolbar = new Gtk.HeaderBar ();
+		this.toolbar.set_title ("Quotes");
+		this.set_titlebar (this.toolbar);
+		this.toolbar.show_close_button = true;
+		this.initialize_toolbar ();
+	}
+	
+	private void initialize_toolbar () {
+		Gtk.Image refresh_icon = new Gtk.Image.from_icon_name (
+			"view-refresh", Gtk.IconSize.SMALL_TOOLBAR
+		);
+		this.refresh_tool_button = new Gtk.ToolButton (refresh_icon, null);
+		this.refresh_tool_button.is_important = true;
+		this.refresh_tool_button.set_tooltip_text ("Get another random quote");
+		this.toolbar.add (refresh_tool_button);
+
+		Gtk.Image copy_icon = new Gtk.Image.from_icon_name (
+			"edit-copy", Gtk.IconSize.SMALL_TOOLBAR
+		);
+		this.share_tool_button = new Gtk.ToolButton (copy_icon, null);
+		this.toolbar.add (share_tool_button);
+	}
+	
+	private void button_events () {
+		this.refresh_tool_button.clicked.connect ( () => {
+			quote_query.begin();
+		});
+	}
+	
+	private void connect_signals () {
+		this.search_begin.connect (this.on_search_begin);
+		this.search_end.connect (this.on_search_end);
+	}
+	
 	public MainWindow (Application application) {
 		Object (
 			application: application,
@@ -74,51 +127,18 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.set_border_width (12);
 		this.set_position (Gtk.WindowPosition.CENTER);
 
-		this.search_begin.connect (this.on_search_begin);
-		this.search_end.connect (this.on_search_end);
-
-		// Initialize widgets
-		this.quote_text = new Gtk.Label ("...");
-		this.quote_text.set_selectable (true);
-		this.quote_author = new Gtk.Label ("...");
-		this.quote_author.set_selectable (true);
-		this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
-		this.quote_stack = new Gtk.Stack ();
-		this.spinner = new Gtk.Spinner ();
-
-		// Create Toolbar
-	    Gtk.HeaderBar toolbar = new Gtk.HeaderBar ();
-		toolbar.set_title ("Quotes");
-		this.set_titlebar (toolbar);
-		toolbar.show_close_button = true;
+		this.connect_signals ();
+		this.initialize_widgets ();
+		this.button_events ();
 
 		// Create Main Box
 		Gtk.Box quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 		quote_box.set_spacing (10);
 
 		// Add widgets to Main Box
-		quote_box.pack_start (quote_text);
-		quote_box.pack_start (quote_author);
-		quote_box.pack_start (quote_url);
-
-	    // Create Toolbar buttons
-		Gtk.Image refresh_icon = new Gtk.Image.from_icon_name (
-			"view-refresh", Gtk.IconSize.SMALL_TOOLBAR
-		);
-		refresh_tool_button = new Gtk.ToolButton (refresh_icon, null);
-		refresh_tool_button.is_important = true;
-		refresh_tool_button.set_tooltip_text ("Get another random quote");
-		toolbar.add (refresh_tool_button);
-
-		Gtk.Image copy_icon = new Gtk.Image.from_icon_name (
-			"edit-copy", Gtk.IconSize.SMALL_TOOLBAR
-		);
-		share_tool_button = new Gtk.ToolButton (copy_icon, null);
-		toolbar.add (share_tool_button);
-
-		refresh_tool_button.clicked.connect ( () => {
-			quote_query.begin();
-		});
+		quote_box.pack_start (this.quote_text);
+		quote_box.pack_start (this.quote_author);
+		quote_box.pack_start (this.quote_url);
 
 		// Stack
 		this.quote_stack.add_named (this.spinner, "spinner");
@@ -129,7 +149,6 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.quote_stack.set_visible (false);
 
 		quote_query.begin ();
-
 	}
 
 	// TODO: Move this logic method
