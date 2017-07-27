@@ -20,6 +20,9 @@
 */
 
 public class MainWindow : Gtk.ApplicationWindow {
+	protected bool searching = false;
+
+	// Widgets
 	protected Gtk.Label quote_text;
 	protected Gtk.Label quote_author;
 	protected Gtk.LinkButton quote_url;
@@ -28,10 +31,10 @@ public class MainWindow : Gtk.ApplicationWindow {
 	protected Gtk.HeaderBar toolbar;
 	protected Gtk.ToolButton refresh_tool_button;
 	protected Gtk.ToolButton share_tool_button;
-	protected bool searching = false;
-	
+	protected Gtk.Table spinner_table;
+
     // signals
-    public signal void search_begin ();	
+    public signal void search_begin ();
     public signal void search_end (Json.Object? url, Error? e);
 
     protected void on_search_begin () {
@@ -54,7 +57,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 	    if (error != null) {
 	    	return;
 	    }
-	    
+
 	    // Set quote text
 	    this.quote_text.set_text (quote.get_string_member ("quoteText"));
 	    // Set quote author
@@ -69,7 +72,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 	    this.quote_stack.set_visible_child_name ("quote_box");
     }
 	// End signals
-	
+
 	private void initialize_widgets () {
 		this.quote_text = new Gtk.Label ("...");
 		this.quote_text.set_selectable (true);
@@ -81,6 +84,8 @@ public class MainWindow : Gtk.ApplicationWindow {
 
 		this.quote_stack = new Gtk.Stack ();
 
+		this.spinner_table = new Gtk.Table (3, 1, true);
+
 		this.spinner = new Gtk.Spinner ();
 
 		this.toolbar = new Gtk.HeaderBar ();
@@ -89,7 +94,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.toolbar.show_close_button = true;
 		this.initialize_toolbar ();
 	}
-	
+
 	private void initialize_toolbar () {
 		Gtk.Image refresh_icon = new Gtk.Image.from_icon_name (
 			"view-refresh", Gtk.IconSize.SMALL_TOOLBAR
@@ -105,18 +110,18 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.share_tool_button = new Gtk.ToolButton (copy_icon, null);
 		this.toolbar.add (share_tool_button);
 	}
-	
+
 	private void button_events () {
 		this.refresh_tool_button.clicked.connect ( () => {
 			quote_query.begin();
 		});
 	}
-	
+
 	private void connect_signals () {
 		this.search_begin.connect (this.on_search_begin);
 		this.search_end.connect (this.on_search_end);
 	}
-	
+
 	public MainWindow (Application application) {
 		Object (
 			application: application,
@@ -140,8 +145,12 @@ public class MainWindow : Gtk.ApplicationWindow {
 		quote_box.pack_start (this.quote_author);
 		quote_box.pack_start (this.quote_url);
 
+		// Spinner Table
+		Gtk.AttachOptions flags = Gtk.AttachOptions.EXPAND | Gtk.AttachOptions.FILL;
+		this.spinner_table.attach (this.spinner, 0, 1, 1, 2, flags, flags, 0, 0);
+
 		// Stack
-		this.quote_stack.add_named (this.spinner, "spinner");
+		this.quote_stack.add_named (this.spinner_table, "spinner");
 		this.quote_stack.add_named (quote_box, "quote_box");
 
 		this.add(quote_stack);
@@ -158,7 +167,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
 		Application app = (Application)this.application;
 		Soup.URI uri = new Soup.URI (app.quote_host);
-		Json.Parser parser = new Json.Parser();	
+		Json.Parser parser = new Json.Parser();
 		Json.Object root_object;
 
 		try {
