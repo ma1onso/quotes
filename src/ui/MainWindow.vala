@@ -80,7 +80,9 @@ public class MainWindow : Gtk.ApplicationWindow {
 	    }
 
 	    // Set quote text
-	    this.quote_text.set_text (quote.get_string_member ("quoteText"));
+	    this.quote_text.set_text (
+	    	"\"" + quote.get_string_member ("quoteText") + "\""
+	    );
 	    // Set quote author
 		if (quote.get_string_member ("quoteAuthor") != "") {
 			this.quote_author.set_text (quote.get_string_member ("quoteAuthor"));
@@ -101,6 +103,8 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.quote_text = new Gtk.Label ("...");
 		this.quote_text.set_selectable (true);
 		this.quote_text.get_style_context ().add_class ("quote-text");
+		this.quote_text.set_line_wrap (true);
+		this.quote_text.set_justify (Gtk.Justification.CENTER);
 
 		this.quote_author = new Gtk.Label ("...");
 		this.quote_author.set_selectable (true);
