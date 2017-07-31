@@ -41,8 +41,8 @@ public class MainWindow : Gtk.ApplicationWindow {
 		Object (
 			application: application,
 			title: "Quotes",
-			default_width: 600,
-			default_height: 400
+			default_width: 800,
+			default_height: 600
 		);
 		this.set_border_width (12);
 		this.set_position (Gtk.WindowPosition.CENTER);
@@ -102,12 +102,13 @@ public class MainWindow : Gtk.ApplicationWindow {
 	
 		this.quote_text = new Gtk.Label ("...");
 		this.quote_text.set_selectable (true);
-		this.quote_text.get_style_context ().add_class ("quote-text");
 		this.quote_text.set_line_wrap (true);
 		this.quote_text.set_justify (Gtk.Justification.CENTER);
+		this.quote_text.get_style_context ().add_class ("quote-text");
 
 		this.quote_author = new Gtk.Label ("...");
 		this.quote_author.set_selectable (true);
+		this.quote_author.get_style_context ().add_class ("quote-author");
 
 		this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
 
@@ -157,7 +158,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 	
 	private void load_css () {
 		Gtk.CssProvider css_provider = new Gtk.CssProvider ();
-		css_provider.load_from_resource ("com/github/alons45/quotes/Application.css");
+		css_provider.load_from_resource ("com/github/alons45/quotes/Window.css");
 		Gtk.StyleContext.add_provider_for_screen (
 			Gdk.Screen.get_default (),
 			css_provider,
