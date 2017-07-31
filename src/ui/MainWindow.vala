@@ -111,6 +111,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.quote_author.get_style_context ().add_class ("quote-author");
 
 		this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
+		this.quote_url.get_style_context ().add_class ("quote-url");
 
 		this.quote_stack = new Gtk.Stack ();
 		this.quote_stack.set_visible (false);
