@@ -81,7 +81,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
 	    // Set quote text
 	    this.quote_text.set_text (
-	    	"\"" + quote.get_string_member ("quoteText") + "\""
+	    	"\"" + quote.get_string_member ("quoteText")._chomp () + "\""
 	    );
 	    // Set quote author
 		if (quote.get_string_member ("quoteAuthor") != "") {
