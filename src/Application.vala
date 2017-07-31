@@ -23,13 +23,6 @@
 
 public class Application : Gtk.Application {
 
-	public Soup.Session session { get; private set; }
-
-	public unowned string quote_host {
-		get {
-			return "http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en";
-		}
-	}
 	public Application () {
 		Object (
 			application_id: "com.github.alons45.quotes",
@@ -41,6 +34,14 @@ public class Application : Gtk.Application {
 
 	protected override void activate () {
 		new MainWindow (this);
+	}
+
+	public Soup.Session session { get; private set; }
+
+	public unowned string quote_host {
+		get {
+			return "http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en";
+		}
 	}
 
 	public static int main(string[] args) {

@@ -76,6 +76,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 	private void initialize_widgets () {
 		this.quote_text = new Gtk.Label ("...");
 		this.quote_text.set_selectable (true);
+		this.quote_text.get_style_context ().add_class ("quote-text");
 
 		this.quote_author = new Gtk.Label ("...");
 		this.quote_author.set_selectable (true);
@@ -87,6 +88,8 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.spinner_table = new Gtk.Table (3, 1, true);
 
 		this.spinner = new Gtk.Spinner ();
+		// TODO: Align with this, example: https://github.com/danrabbit/nimbus/blob/master/src/MainWindow.vala
+		// this.spinner.halign = Gtk.Align.CENTER;
 
 		this.toolbar = new Gtk.HeaderBar ();
 		this.toolbar.set_title ("Quotes");
@@ -110,7 +113,40 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.share_tool_button = new Gtk.ToolButton (copy_icon, null);
 		this.toolbar.add (share_tool_button);
 	}
+	
+	private void grid () {
+		// Create Main Box
+		Gtk.Box quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+		quote_box.set_spacing (10);
 
+		// Add widgets to Main Box
+		quote_box.pack_start (this.quote_text);
+		quote_box.pack_start (this.quote_author);
+		quote_box.pack_start (this.quote_url);
+
+		// Spinner Table
+		Gtk.AttachOptions flags = Gtk.AttachOptions.EXPAND | Gtk.AttachOptions.FILL;
+		this.spinner_table.attach (this.spinner, 0, 1, 1, 2, flags, flags, 0, 0);
+
+		// Stack
+		this.quote_stack.add_named (this.spinner_table, "spinner");
+		this.quote_stack.add_named (quote_box, "quote_box");
+
+		this.add(quote_stack);
+		this.show_all();
+		this.quote_stack.set_visible (false);
+	}
+	
+	private void load_css () {
+		Gtk.CssProvider css_provider = new Gtk.CssProvider ();
+		css_provider.load_from_resource ("com/github/alons45/quotes/Application.css");
+		Gtk.StyleContext.add_provider_for_screen (
+			Gdk.Screen.get_default (),
+			css_provider,
+			Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+		);			
+	}
+	
 	private void button_events () {
 		this.refresh_tool_button.clicked.connect ( () => {
 			quote_query.begin();
@@ -135,27 +171,8 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.connect_signals ();
 		this.initialize_widgets ();
 		this.button_events ();
-
-		// Create Main Box
-		Gtk.Box quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-		quote_box.set_spacing (10);
-
-		// Add widgets to Main Box
-		quote_box.pack_start (this.quote_text);
-		quote_box.pack_start (this.quote_author);
-		quote_box.pack_start (this.quote_url);
-
-		// Spinner Table
-		Gtk.AttachOptions flags = Gtk.AttachOptions.EXPAND | Gtk.AttachOptions.FILL;
-		this.spinner_table.attach (this.spinner, 0, 1, 1, 2, flags, flags, 0, 0);
-
-		// Stack
-		this.quote_stack.add_named (this.spinner_table, "spinner");
-		this.quote_stack.add_named (quote_box, "quote_box");
-
-		this.add(quote_stack);
-		this.show_all();
-		this.quote_stack.set_visible (false);
+		this.grid ();
+		this.load_css ();
 
 		quote_query.begin ();
 	}
