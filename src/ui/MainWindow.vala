@@ -23,6 +23,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 	protected bool searching = false;
 
 	// Widgets
+	protected Gtk.Box quote_box;
 	protected Gtk.Label quote_text;
 	protected Gtk.Label quote_author;
 	protected Gtk.LinkButton quote_url;
@@ -31,11 +32,31 @@ public class MainWindow : Gtk.ApplicationWindow {
 	protected Gtk.HeaderBar toolbar;
 	protected Gtk.ToolButton refresh_tool_button;
 	protected Gtk.ToolButton share_tool_button;
-	protected Gtk.Table spinner_table;
 
     // signals
     public signal void search_begin ();
     public signal void search_end (Json.Object? url, Error? e);
+
+	public MainWindow (Application application) {
+		Object (
+			application: application,
+			title: "Quotes",
+			default_width: 600,
+			default_height: 400
+		);
+		this.set_border_width (12);
+		this.set_position (Gtk.WindowPosition.CENTER);
+
+		this.connect_signals ();
+		this.initialize_widgets ();
+		this.button_events ();
+		this.grid ();
+		this.load_css ();
+		
+		this.show_all();		
+		
+		quote_query.begin ();
+	}
 
     protected void on_search_begin () {
 		this.refresh_tool_button.sensitive = false;
@@ -74,6 +95,9 @@ public class MainWindow : Gtk.ApplicationWindow {
 	// End signals
 
 	private void initialize_widgets () {
+		this.quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+		quote_box.set_spacing (10);
+	
 		this.quote_text = new Gtk.Label ("...");
 		this.quote_text.set_selectable (true);
 		this.quote_text.get_style_context ().add_class ("quote-text");
@@ -84,12 +108,11 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
 
 		this.quote_stack = new Gtk.Stack ();
-
-		this.spinner_table = new Gtk.Table (3, 1, true);
+		this.quote_stack.set_visible (false);
 
 		this.spinner = new Gtk.Spinner ();
-		// TODO: Align with this, example: https://github.com/danrabbit/nimbus/blob/master/src/MainWindow.vala
-		// this.spinner.halign = Gtk.Align.CENTER;
+		// Reference: https://github.com/danrabbit/nimbus/blob/master/src/MainWindow.vala
+		this.spinner.halign = Gtk.Align.CENTER;
 
 		this.toolbar = new Gtk.HeaderBar ();
 		this.toolbar.set_title ("Quotes");
@@ -115,26 +138,17 @@ public class MainWindow : Gtk.ApplicationWindow {
 	}
 	
 	private void grid () {
-		// Create Main Box
-		Gtk.Box quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-		quote_box.set_spacing (10);
-
 		// Add widgets to Main Box
 		quote_box.pack_start (this.quote_text);
 		quote_box.pack_start (this.quote_author);
 		quote_box.pack_start (this.quote_url);
 
-		// Spinner Table
-		Gtk.AttachOptions flags = Gtk.AttachOptions.EXPAND | Gtk.AttachOptions.FILL;
-		this.spinner_table.attach (this.spinner, 0, 1, 1, 2, flags, flags, 0, 0);
-
-		// Stack
-		this.quote_stack.add_named (this.spinner_table, "spinner");
+		// Add widgets to Stack
+		this.quote_stack.add_named (this.spinner, "spinner");
 		this.quote_stack.add_named (quote_box, "quote_box");
-
+		
+		// Add widgets to Window
 		this.add(quote_stack);
-		this.show_all();
-		this.quote_stack.set_visible (false);
 	}
 	
 	private void load_css () {
@@ -156,25 +170,6 @@ public class MainWindow : Gtk.ApplicationWindow {
 	private void connect_signals () {
 		this.search_begin.connect (this.on_search_begin);
 		this.search_end.connect (this.on_search_end);
-	}
-
-	public MainWindow (Application application) {
-		Object (
-			application: application,
-			title: "Quotes",
-			default_width: 600,
-			default_height: 400
-		);
-		this.set_border_width (12);
-		this.set_position (Gtk.WindowPosition.CENTER);
-
-		this.connect_signals ();
-		this.initialize_widgets ();
-		this.button_events ();
-		this.grid ();
-		this.load_css ();
-
-		quote_query.begin ();
 	}
 
 	// TODO: Move this logic method
