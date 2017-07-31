@@ -19,8 +19,6 @@
 * Authored by: Author <alons45@gmail.com>
 */
 
-// valac --thread --pkg libsoup-2.4 --pkg json-glib-1.0 --pkg gtk+-3.0 Application.vala ui/MainWindow.vala -o ~/Workspace/Desktop/quotes/build/quote
-
 public class Application : Gtk.Application {
 
 	public Application () {
