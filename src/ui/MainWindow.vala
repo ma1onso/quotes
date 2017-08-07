@@ -31,7 +31,10 @@ public class MainWindow : Gtk.ApplicationWindow {
 	protected Gtk.Spinner spinner;
 	protected Gtk.HeaderBar toolbar;
 	protected Gtk.ToolButton refresh_tool_button;
-	protected Gtk.ToolButton share_tool_button;
+	protected Gtk.ToolButton copy_to_clipboard_button;
+	protected Gtk.Clipboard clipboard;
+
+	protected Gdk.Display display;
 
     // signals
     public signal void search_begin ();
@@ -48,7 +51,8 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.set_position (Gtk.WindowPosition.CENTER);
 
 		this.connect_signals ();
-		this.initialize_widgets ();
+		this.initialize_gdk_vars ();
+		this.initialize_gtk_vars ();
 		this.button_events ();
 		this.grid ();
 		this.load_css ();
@@ -60,7 +64,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     protected void on_search_begin () {
 		this.refresh_tool_button.sensitive = false;
-		this.share_tool_button.sensitive = false;
+		this.copy_to_clipboard_button.sensitive = false;
 
     	if (!this.quote_stack.visible) {
     		this.quote_stack.set_visible (true);
@@ -72,7 +76,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     protected void on_search_end (Json.Object? quote, Error? error) {
 		this.refresh_tool_button.sensitive = true;
-		this.share_tool_button.sensitive = true;
+		this.copy_to_clipboard_button.sensitive = true;
     	this.searching = false;
 
 	    if (error != null) {
@@ -96,7 +100,7 @@ public class MainWindow : Gtk.ApplicationWindow {
     }
 	// End signals
 
-	private void initialize_widgets () {
+	private void initialize_gtk_vars () {
 		this.quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 		quote_box.set_spacing (10);
 	
@@ -125,6 +129,14 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.set_titlebar (this.toolbar);
 		this.toolbar.show_close_button = true;
 		this.initialize_toolbar ();
+
+		this.clipboard = Gtk.Clipboard.get_for_display (
+			display, Gdk.SELECTION_CLIPBOARD
+		);
+	}
+
+	private void initialize_gdk_vars () {
+		this.display = this.get_display ();
 	}
 
 	private void initialize_toolbar () {
@@ -139,8 +151,9 @@ public class MainWindow : Gtk.ApplicationWindow {
 		Gtk.Image copy_icon = new Gtk.Image.from_icon_name (
 			"edit-copy", Gtk.IconSize.SMALL_TOOLBAR
 		);
-		this.share_tool_button = new Gtk.ToolButton (copy_icon, null);
-		this.toolbar.add (share_tool_button);
+		this.copy_to_clipboard_button = new Gtk.ToolButton (copy_icon, null);
+		this.copy_to_clipboard_button.set_tooltip_text ("Copy to clipboard");
+		this.toolbar.add (copy_to_clipboard_button);
 	}
 	
 	private void grid () {
@@ -166,10 +179,19 @@ public class MainWindow : Gtk.ApplicationWindow {
 			Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
 		);			
 	}
-	
+
 	private void button_events () {
 		this.refresh_tool_button.clicked.connect ( () => {
 			quote_query.begin();
+		});
+
+		this.copy_to_clipboard_button.clicked.connect ( () => {
+			this.clipboard.set_text (
+				this.quote_text.get_text () + " " +
+				this.quote_author.get_text () + " " +
+				this.quote_url.get_uri (),
+				-1
+			);
 		});
 	}
 
