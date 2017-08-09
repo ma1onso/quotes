@@ -301,7 +301,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 		return complete_quote;
 	}
 
-	// TODO: Move this logic method
+	// TODO: Move this to QuoteClient
 	protected async void quote_query () {
 		// TODO: Include another api source: http://quotesondesign.com/wp-json/posts
 		this.search_begin ();
