@@ -233,7 +233,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 
 	private void load_css () {
 		Gtk.CssProvider css_provider = new Gtk.CssProvider ();
-		css_provider.load_from_resource ("com/github/alons45/quotes/Window.css");
+		css_provider.load_from_resource ("com/github/alonsoenrique/quotes/window.css");
 		Gtk.StyleContext.add_provider_for_screen (
 			Gdk.Screen.get_default (),
 			css_provider,
