@@ -10,8 +10,8 @@ You'll need the following dependencies:
 * libgtk-3-dev
 * libgranite-dev
 * valac
-* libsoup
-* json-glib
+* libsoup2.4-dev
+* json-glib-tools
 
 It's recommended to create a clean build environment
 
