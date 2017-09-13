@@ -2,7 +2,7 @@
 Name=Quotes
 GenericName=Quotes App
 Comment=Get quotes for daily inspiration
-Categories=Education;Utility;
+Categories=Education;
 Exec=com.github.alonsoenrique.quotes
 Icon=application-default-icon
 Terminal=false

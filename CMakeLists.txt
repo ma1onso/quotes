@@ -43,5 +43,5 @@ GLIB_COMPILE_RESOURCES (GLIB_RESOURCES_CSS SOURCE data/css.gresource.xml)
 ADD_EXECUTABLE (${EXEC_NAME} ${VALA_C} ${GLIB_RESOURCES_ICONS} ${GLIB_RESOURCES_CSS})
 
 INSTALL (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
-INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.alonsoenrique.quotes.dekstop DESTINATION ${DATADIR}/applications/)
+INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.alonsoenrique.quotes.desktop DESTINATION ${DATADIR}/applications/)
 INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.alonsoenrique.quotes.appdata.xml DESTINATION ${DATADIR}/metainfo/)
