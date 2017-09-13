@@ -6,8 +6,8 @@ Build-Depends: cmake (>= 2.8),
                debhelper (>= 9),
                libgtk-3-dev,
                valac (>= 0.16),
-               libsoup,
-               json-glib
+               libsoup2.4-dev (>= 2.4),
+               json-glib-tools (>= 1.0)
 
 Standards-Version: 3.9.3
 Package: com.github.alonsoenrique.quotes
