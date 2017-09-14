@@ -30,5 +30,6 @@ To install, use `make install`, then execute with `com.github.alonsoenrique.quot
 
 To build .deb file (The deb file should be available in the parent directory of the current directory)
 
-     dpkg-buildpackage -B -tc (-B binary-only, only arch-specific files
-     and -tc clean source tree when finished)
+     dpkg-buildpackage -B -tc
+
+`B`: binary-only, only arch-specific files and `tc`: clean source tree when finished
