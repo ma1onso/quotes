@@ -27,6 +27,7 @@
     <url type="bugtracker">https://github.com/AlonsoEnrique/Quotes/issues</url>
     <custom>
         <value key="x-appcenter-color-primary">#6F8A91</value>
-        <value key="x-appcenter-color-primary-text">#77B7C6</value>
+        <value key="x-appcenter-color-primary-text">#121212</value>
+        <value key="x-appcenter-suggested-price">1</value>
     </custom>
 </component>
