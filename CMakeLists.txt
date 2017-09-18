@@ -45,3 +45,10 @@ ADD_EXECUTABLE (${EXEC_NAME} ${VALA_C} ${GLIB_RESOURCES_ICONS} ${GLIB_RESOURCES_
 INSTALL (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
 INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.alonsoenrique.quotes.desktop DESTINATION ${DATADIR}/applications/)
 INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.alonsoenrique.quotes.appdata.xml DESTINATION ${DATADIR}/metainfo/)
+
+INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/16x16/apps/)
+INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/24/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/24x24/apps/)
+INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/32/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/32x32/apps/)
+INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/48/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/48x48/apps/)
+INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/64/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/64x64/apps/)
+INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/128/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/128x128/apps/)
