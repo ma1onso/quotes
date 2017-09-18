@@ -17,7 +17,7 @@ You'll need the following dependencies:
 * libgranite-dev
 * valac
 * libsoup2.4-dev
-* json-glib-tools
+* libjson-glib-dev
 
 It's recommended to create a clean build environment
 
