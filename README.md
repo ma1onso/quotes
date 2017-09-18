@@ -4,6 +4,7 @@ Quotes for daily inspiration
 ![alt text](https://raw.githubusercontent.com/alons45/Quotes/master/data/Screenshot.png)
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.alonsoenrique.quotes)
+
 [![Pay for quotes](https://cdn4.iconfinder.com/data/icons/simple-peyment-methods/512/paypal-128.png)](https://paypal.me/alonsoenrique)
 
 ## Building, Testing, and Installation
