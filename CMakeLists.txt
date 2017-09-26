@@ -29,8 +29,11 @@ INCLUDE (ValaPrecompile)
 VALA_PRECOMPILE (VALA_C ${EXEC_NAME}
     src/configs/Constants.vala
     src/configs/Properties.vala
+    src/utils/QuoteClient.vala
+    src/widgets/Toolbar.vala
+    src/MainWindow.vala
     src/Application.vala
-    src/ui/MainWindow.vala
+
 PACKAGES
     gtk+-3.0>=3.12
     libsoup-2.4

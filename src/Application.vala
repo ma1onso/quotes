@@ -19,7 +19,8 @@
 * Authored by: Author <alons45@gmail.com>
 */
 
-using App.Configs;
+using Quotes;
+using Quotes.Configs;
 
 
 public class Application : Gtk.Application {

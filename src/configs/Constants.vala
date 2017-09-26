@@ -14,7 +14,7 @@
 * with this program. If not, see http://www.gnu.org/licenses/.
 */
 
-namespace App.Configs {
+namespace Quotes.Configs {
 
     /**
      * The {@code Constants} class is responsible for defining all

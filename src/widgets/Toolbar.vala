@@ -1,0 +1,88 @@
+using Quotes.Configs;
+
+namespace Quotes.Widgets {
+
+	public class Toolbar : Gtk.HeaderBar {
+
+		public Gtk.Grid share_grid;
+		public Gtk.Grid container_share_grid;
+
+		public Gtk.ToolButton refresh_tool_button;
+		public Gtk.ToolButton copy_to_clipboard_button;
+		public Gtk.ToolButton share_button;
+		public Gtk.Popover popover;
+		public Gtk.Button facebook_button;
+		public Gtk.Button twitter_button;
+		public Gtk.Button google_button;
+
+		public Toolbar () {
+			this.set_title (Properties.TITLE_HEADER_BAR);
+			this.show_close_button = true;
+
+			Gtk.Image refresh_icon = new Gtk.Image.from_icon_name (
+				"view-refresh", Gtk.IconSize.SMALL_TOOLBAR
+			);
+			this.refresh_tool_button = new Gtk.ToolButton (refresh_icon, null);
+			this.refresh_tool_button.is_important = true;
+			this.refresh_tool_button.set_tooltip_text ("Get another random quote");
+			this.add (refresh_tool_button);
+
+			Gtk.Image copy_icon = new Gtk.Image.from_icon_name (
+				"edit-copy", Gtk.IconSize.SMALL_TOOLBAR
+			);
+			this.copy_to_clipboard_button = new Gtk.ToolButton (copy_icon, null);
+			this.copy_to_clipboard_button.set_tooltip_text ("Copy to clipboard");
+			this.add (this.copy_to_clipboard_button);
+
+			Gtk.Image share_icon = new Gtk.Image.from_icon_name (
+				"emblem-shared", Gtk.IconSize.SMALL_TOOLBAR
+			);
+			this.share_button = new Gtk.ToolButton (share_icon, null);
+			this.share_button.set_tooltip_text ("Share in social networks");
+			this.add (this.share_button);
+
+			this.popover = new Gtk.Popover (this.share_button);
+			this.popover.set_position (Gtk.PositionType.BOTTOM);
+
+			this.facebook_button = new Gtk.Button.from_icon_name (
+				"online-account-facebook", Gtk.IconSize.DND
+			);
+			this.facebook_button.tooltip_text = "Facebook";
+			this.facebook_button.get_style_context ().add_class (
+				Gtk.STYLE_CLASS_FLAT
+			);
+
+			this.twitter_button = new Gtk.Button.from_icon_name (
+				"online-account-twitter", Gtk.IconSize.DND
+			);
+			this.twitter_button.tooltip_text = "Twitter";
+			this.twitter_button.get_style_context ().add_class (
+				Gtk.STYLE_CLASS_FLAT
+			);
+
+			this.google_button = new Gtk.Button.from_icon_name (
+				"online-account-google-plus", Gtk.IconSize.DND
+			);
+			this.google_button.tooltip_text = "Google Plus";
+			this.google_button.get_style_context ().add_class (
+				Gtk.STYLE_CLASS_FLAT
+			);
+
+			share_grid = new Gtk.Grid ();
+			share_grid.margin = 6;
+			share_grid.add (this.facebook_button);
+			share_grid.add (this.twitter_button);
+			share_grid.add (this.google_button);
+
+			container_share_grid = new Gtk.Grid ();
+			container_share_grid.orientation = Gtk.Orientation.VERTICAL;
+			container_share_grid.add (share_grid);
+			container_share_grid.show_all ();
+
+			this.popover.add (container_share_grid);
+		}
+
+	}
+
+}
+

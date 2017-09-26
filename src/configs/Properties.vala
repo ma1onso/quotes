@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-namespace App.Configs {
+namespace Quotes.Configs {
 
     /**
      * The {@code Properties} class is responsible for defining all
