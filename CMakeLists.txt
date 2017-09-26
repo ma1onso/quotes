@@ -27,6 +27,8 @@ ENSURE_VALA_VERSION ("0.26" MINIMUM)
 
 INCLUDE (ValaPrecompile)
 VALA_PRECOMPILE (VALA_C ${EXEC_NAME}
+    src/configs/Constants.vala
+    src/configs/Properties.vala
     src/Application.vala
     src/ui/MainWindow.vala
 PACKAGES
@@ -35,10 +37,13 @@ PACKAGES
     json-glib-1.0
 )
 
-include(GResource)
+INCLUDE (GResource)
 
 GLIB_COMPILE_RESOURCES (GLIB_RESOURCES_ICONS SOURCE data/images/icons/icons.gresource.xml)
 GLIB_COMPILE_RESOURCES (GLIB_RESOURCES_CSS SOURCE data/css/css.gresource.xml)
+
+INCLUDE (GSettings)
+ADD_SCHEMA ("data/com.github.alonsoenrique.quotes.gschema.xml")
 
 ADD_EXECUTABLE (${EXEC_NAME} ${VALA_C} ${GLIB_RESOURCES_ICONS} ${GLIB_RESOURCES_CSS})
 

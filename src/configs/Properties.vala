@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2017 APP Developers (http://github.com/alons45/quotes)
+* Copyright (c) 2017 Robert San <robertsanseries@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -15,37 +15,20 @@
 * License along with this program; if not, write to the
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301 USA
-*
-* Authored by: Author <alons45@gmail.com>
 */
 
-using App.Configs;
+namespace App.Configs {
 
+    /**
+     * The {@code Properties} class is responsible for defining all
+     * the texts that are displayed in the application and must be translated.
+     *
+     * @since 0.1.0
+     */
+    public class Properties {
 
-public class Application : Gtk.Application {
-
-	public Application () {
-		Object (
-			application_id: Constants.ID,
-			flags: ApplicationFlags.FLAGS_NONE
-		);
-
-		this.session = new Soup.Session ();
-	}
-
-	protected override void activate () {
-		new MainWindow (this);
-	}
-
-	public Soup.Session session { get; private set; }
-
-	public unowned string quote_host {
-		get {
-			return "http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en";
-		}
-	}
-
-	public static int main(string[] args) {
-		return new Application ().run (args);
-	}
+        public abstract const string TITLE_HEADER_BAR = "Quotes";
+        public abstract const string CLOSE = "Close";
+        public abstract const string WELCOME = "Welcome";
+    }
 }

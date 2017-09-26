@@ -19,6 +19,9 @@
 * Authored by: Author <alons45@gmail.com>
 */
 
+using App.Configs;
+
+
 public class MainWindow : Gtk.ApplicationWindow {
 	protected bool searching = false;
 
@@ -55,10 +58,11 @@ public class MainWindow : Gtk.ApplicationWindow {
 	public MainWindow (Application application) {
 		Object (
 			application: application,
-			title: "Quotes",
+			title: Properties.TITLE_HEADER_BAR,
 			default_width: 800,
 			default_height: 600
 		);
+
 		this.set_border_width (12);
 		this.set_position (Gtk.WindowPosition.CENTER);
 		// weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
@@ -139,7 +143,7 @@ public class MainWindow : Gtk.ApplicationWindow {
 		this.spinner.halign = Gtk.Align.CENTER;
 
 		this.toolbar = new Gtk.HeaderBar ();
-		this.toolbar.set_title ("Quotes");
+		this.toolbar.set_title (Properties.TITLE_HEADER_BAR);
 		this.set_titlebar (this.toolbar);
 		this.toolbar.show_close_button = true;
 		this.initialize_toolbar ();
