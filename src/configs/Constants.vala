@@ -40,5 +40,7 @@ namespace Quotes.Configs {
         public abstract const string URL_CSS = "com/github/alonsoenrique/quotes/window.css";
         public abstract const string [] ABOUT_AUTHORS = { "Alonso Enrique <alons45@gmail.com>" };
         public abstract const Gtk.License ABOUT_LICENSE_TYPE = Gtk.License.GPL_3_0;
+
     }
+
 }

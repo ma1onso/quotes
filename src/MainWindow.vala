@@ -27,16 +27,14 @@ using Quotes.Utils;
 namespace Quotes {
 
 	public class MainWindow : Gtk.ApplicationWindow {
+
 		private bool searching = false;
+		private Gdk.Display display;
 
 		public QuoteClient quote_client;
 		public QuoteStack quote_stack;
 		public Toolbar toolbar;
 
-		// Gdk
-		private Gdk.Display display;
-
-		// Signals
 		public signal void search_begin ();
 		public signal void search_end (Json.Object? url, Error? e);
 
@@ -59,7 +57,7 @@ namespace Quotes {
 			this.toolbar = new Toolbar ();
 			this.set_titlebar (this.toolbar);
 			this.toolbar.events (this);
-			this.toolbar.share_button_events (
+			this.toolbar.social_network_events (
 				this.quote_stack.quote_url.get_uri(), this.quote_stack.complete_quote ()
 			);
 
@@ -110,6 +108,7 @@ namespace Quotes {
 				return;
 			}
 
+			// TODO: Move the below code to QuoteStack class
 			// Set quote text
 			this.quote_stack.quote_text.set_text (
 				"\"" + quote.get_string_member ("quoteText")._chomp () + "\""

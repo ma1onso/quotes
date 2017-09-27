@@ -26,9 +26,10 @@ namespace Quotes.Configs {
      * @since 0.1.0
      */
     public class Properties {
-
         public abstract const string TITLE_HEADER_BAR = "Quotes";
         public abstract const string CLOSE = "Close";
         public abstract const string WELCOME = "Welcome";
+
     }
+
 }

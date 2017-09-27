@@ -1,4 +1,26 @@
+/*
+* Copyright (c) 2017 APP Developers (http://github.com/alons45/quotes)
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301 USA
+*
+* Authored by: Author <alons45@gmail.com>
+*/
+
 using Quotes.Configs;
+
 
 namespace Quotes.Widgets {
 
@@ -119,7 +141,7 @@ namespace Quotes.Widgets {
 			this.popover.hide ();
 		}
 
-		public void share_button_events (string quote_uri, string quote_data) {
+		public void social_network_events (string quote_uri, string quote_data) {
 			this.facebook_button.clicked.connect (() => {
 				this.open_facebook_url ("https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", quote_uri, quote_data);
 			});
