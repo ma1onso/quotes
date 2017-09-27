@@ -82,6 +82,57 @@ namespace Quotes.Widgets {
 			this.popover.add (container_share_grid);
 		}
 
+		public void events (MainWindow main_window) {
+			this.refresh_tool_button.clicked.connect ( () => {
+				main_window.quote_client.quote_query.begin();
+			});
+
+			this.copy_to_clipboard_button.clicked.connect ( () => {
+				main_window.quote_stack.clipboard.set_text (main_window.quote_stack.complete_quote (), -1);
+			});
+
+			this.share_button.clicked.connect ( () => {
+				this.popover.set_visible (true);
+			});
+		}
+
+		public void open_url (string social_network_url, string quote_data) {
+		    try {
+		        AppInfo.launch_default_for_uri (social_network_url.printf (quote_data), null);
+		    } catch (Error e) {
+		        warning ("%s", e.message);
+		    }
+		    this.popover.hide ();
+		}
+
+		public void open_facebook_url (string social_network_url, string quote_uri, string quote_data) {
+			try {
+				AppInfo.launch_default_for_uri (
+					social_network_url.printf(
+						quote_uri, quote_data
+					),
+					null
+				);
+			} catch (Error e) {
+				warning ("%s", e.message);
+			}
+			this.popover.hide ();
+		}
+
+		public void share_button_events (string quote_uri, string quote_data) {
+			this.facebook_button.clicked.connect (() => {
+				this.open_facebook_url ("https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", quote_uri, quote_data);
+			});
+
+			this.twitter_button.clicked.connect (() => {
+				this.open_url ("http://twitter.com/home/?status=%s", quote_data);
+			});
+
+			this.google_button.clicked.connect (() => {
+				this.open_url ("https://plus.google.com/share?text=%s", quote_data);
+			});
+		}
+
 	}
 
 }

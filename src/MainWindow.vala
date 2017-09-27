@@ -27,14 +27,14 @@ using Quotes.Utils;
 namespace Quotes {
 
 	public class MainWindow : Gtk.ApplicationWindow {
-		protected bool searching = false;
+		private bool searching = false;
 
-		protected QuoteClient quote_client;
-		protected QuoteStack quote_stack;
-		protected Toolbar toolbar;
+		public QuoteClient quote_client;
+		public QuoteStack quote_stack;
+		public Toolbar toolbar;
 
 		// Gdk
-		protected Gdk.Display display;
+		private Gdk.Display display;
 
 		// Signals
 		public signal void search_begin ();
@@ -58,11 +58,12 @@ namespace Quotes {
 			this.quote_stack.set_clipboard (this.display);
 			this.toolbar = new Toolbar ();
 			this.set_titlebar (this.toolbar);
+			this.toolbar.events (this);
+			this.toolbar.share_button_events (
+				this.quote_stack.quote_url.get_uri(), this.quote_stack.complete_quote ()
+			);
 
 			this.connect_signals ();
-
-			this.button_events ();
-			this.share_button_events ();
 
 			this.add(this.quote_stack);
 
@@ -72,6 +73,10 @@ namespace Quotes {
 
 			// First api call
 			this.quote_client.quote_query.begin ();
+		}
+
+		private void initialize_gdk_vars () {
+			this.display = this.get_display ();
 		}
 
 		private void style_provider () {
@@ -120,64 +125,10 @@ namespace Quotes {
 
 			this.quote_stack.set_visible_child_name ("quote_box");
 		}
-		// End signals
 
 		private void connect_signals () {
 			this.search_begin.connect (this.on_search_begin);
 			this.search_end.connect (this.on_search_end);
-		}
-
-		public void button_events () {
-			this.toolbar.refresh_tool_button.clicked.connect ( () => {
-				this.quote_client.quote_query.begin();
-			});
-
-			this.toolbar.copy_to_clipboard_button.clicked.connect ( () => {
-				this.quote_stack.clipboard.set_text (this.quote_stack.complete_quote (), -1);
-			});
-
-			this.toolbar.share_button.clicked.connect ( () => {
-				this.toolbar.popover.set_visible (true);
-			});
-		}
-
-		// TODO: Se me ocurre que puedo separar estos metodos en el fichero de Toobar.vala
-		// haciendo que reciban solo el parametro de la url y el string del quote y demás
-		public void share_button_event (string url) {
-		    try {
-		        AppInfo.launch_default_for_uri (url.printf (this.quote_stack.complete_quote ()), null);
-		    } catch (Error e) {
-		        warning ("%s", e.message);
-		    }
-		    this.toolbar.popover.hide ();
-		}
-
-		public void share_button_events () {
-			this.toolbar.facebook_button.clicked.connect (() => {
-				try {
-					AppInfo.launch_default_for_uri (
-						"https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s".printf(
-							this.quote_stack.quote_url.get_uri(), this.quote_stack.complete_quote()
-						),
-						null
-					);
-				} catch (Error e) {
-					warning ("%s", e.message);
-				}
-				this.toolbar.popover.hide ();
-			});
-
-			this.toolbar.twitter_button.clicked.connect (() => {
-				this.share_button_event ("http://twitter.com/home/?status=%s");
-			});
-
-			this.toolbar.google_button.clicked.connect (() => {
-				this.share_button_event ("https://plus.google.com/share?text=%s");
-			});
-		}
-
-		private void initialize_gdk_vars () {
-			this.display = this.get_display ();
 		}
 
 	}
