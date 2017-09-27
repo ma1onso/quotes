@@ -13,10 +13,9 @@ namespace Quotes.Utils {
 		}
 
 		public async void quote_query () {
-			// TODO: Include another api source: http://quotesondesign.com/wp-json/posts
 			this.app_window.search_begin ();
 
-			Soup.URI uri = new Soup.URI (this.app.quote_host);
+			Soup.URI uri = new Soup.URI (this.app.quotes_end_points);
 			Json.Parser parser = new Json.Parser();
 			Json.Object root_object;
 

@@ -29,19 +29,9 @@ namespace Quotes {
 	public class MainWindow : Gtk.ApplicationWindow {
 		protected bool searching = false;
 
-		protected Toolbar toolbar;
 		protected QuoteClient quote_client;
-
-		// Containers
-		protected Gtk.Box quote_box;
-		protected Gtk.Stack quote_stack;
-
-		// Widgets
-		protected Gtk.Label quote_text;
-		protected Gtk.Label quote_author;
-		protected Gtk.LinkButton quote_url;
-		protected Gtk.Spinner spinner;
-		protected Gtk.Clipboard clipboard;
+		protected QuoteStack quote_stack;
+		protected Toolbar toolbar;
 
 		// Gdk
 		protected Gdk.Display display;
@@ -61,25 +51,37 @@ namespace Quotes {
 			this.set_border_width (12);
 			this.set_position (Gtk.WindowPosition.CENTER);
 
-			this.quote_client = new QuoteClient (this);
-
-			this.connect_signals ();
 			this.initialize_gdk_vars ();
-			this.initialize_gtk_vars ();
 
-			// Initialize toolbar
+			this.quote_client = new QuoteClient (this);
+			this.quote_stack = new QuoteStack ();
+			this.quote_stack.set_clipboard (this.display);
 			this.toolbar = new Toolbar ();
 			this.set_titlebar (this.toolbar);
+
+			this.connect_signals ();
+
 			this.button_events ();
 			this.share_button_events ();
 
-			this.complete_grid ();
+			this.add(this.quote_stack);
 
 			this.style_provider ();
 
 			this.show_all ();
 
+			// First api call
 			this.quote_client.quote_query.begin ();
+		}
+
+		private void style_provider () {
+			Gtk.CssProvider css_provider = new Gtk.CssProvider ();
+			css_provider.load_from_resource ("com/github/alonsoenrique/quotes/window.css");
+			Gtk.StyleContext.add_provider_for_screen (
+				Gdk.Screen.get_default (),
+				css_provider,
+				Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+			);
 		}
 
 		protected void on_search_begin () {
@@ -90,7 +92,7 @@ namespace Quotes {
 				this.quote_stack.set_visible (true);
 			}
 			this.quote_stack.set_visible_child_name ("spinner");
-			this.spinner.start ();
+			this.quote_stack.spinner.start ();
 			this.searching = true;
 		}
 
@@ -104,17 +106,17 @@ namespace Quotes {
 			}
 
 			// Set quote text
-			this.quote_text.set_text (
+			this.quote_stack.quote_text.set_text (
 				"\"" + quote.get_string_member ("quoteText")._chomp () + "\""
 			);
 			// Set quote author
 			if (quote.get_string_member ("quoteAuthor") != "") {
-				this.quote_author.set_text (quote.get_string_member ("quoteAuthor"));
+				this.quote_stack.quote_author.set_text (quote.get_string_member ("quoteAuthor"));
 			} else {
-				this.quote_author.set_text ("Anonymous author");
+				this.quote_stack.quote_author.set_text ("Anonymous author");
 			}
 			// Set quote uri
-			this.quote_url.set_uri (quote.get_string_member ("quoteLink"));
+			this.quote_stack.quote_url.set_uri (quote.get_string_member ("quoteLink"));
 
 			this.quote_stack.set_visible_child_name ("quote_box");
 		}
@@ -131,7 +133,7 @@ namespace Quotes {
 			});
 
 			this.toolbar.copy_to_clipboard_button.clicked.connect ( () => {
-				this.clipboard.set_text (this.complete_quote (), -1);
+				this.quote_stack.clipboard.set_text (this.quote_stack.complete_quote (), -1);
 			});
 
 			this.toolbar.share_button.clicked.connect ( () => {
@@ -143,7 +145,7 @@ namespace Quotes {
 		// haciendo que reciban solo el parametro de la url y el string del quote y demás
 		public void share_button_event (string url) {
 		    try {
-		        AppInfo.launch_default_for_uri (url.printf (this.complete_quote ()), null);
+		        AppInfo.launch_default_for_uri (url.printf (this.quote_stack.complete_quote ()), null);
 		    } catch (Error e) {
 		        warning ("%s", e.message);
 		    }
@@ -155,7 +157,7 @@ namespace Quotes {
 				try {
 					AppInfo.launch_default_for_uri (
 						"https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s".printf(
-							this.quote_url.get_uri(), this.complete_quote()
+							this.quote_stack.quote_url.get_uri(), this.quote_stack.complete_quote()
 						),
 						null
 					);
@@ -174,68 +176,8 @@ namespace Quotes {
 			});
 		}
 
-		private void initialize_gtk_vars () {
-			this.quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-			quote_box.set_spacing (10);
-
-			this.quote_text = new Gtk.Label ("...");
-			this.quote_text.set_selectable (true);
-			this.quote_text.set_line_wrap (true);
-			this.quote_text.set_justify (Gtk.Justification.CENTER);
-			this.quote_text.get_style_context ().add_class ("quote-text");
-
-			this.quote_author = new Gtk.Label ("...");
-			this.quote_author.set_selectable (true);
-			this.quote_author.get_style_context ().add_class ("quote-author");
-
-			this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
-			this.quote_url.get_style_context ().add_class ("quote-url");
-
-			this.quote_stack = new Gtk.Stack ();
-			this.quote_stack.set_visible (false);
-
-			this.spinner = new Gtk.Spinner ();
-			this.spinner.halign = Gtk.Align.CENTER;
-
-			this.clipboard = Gtk.Clipboard.get_for_display (
-				display, Gdk.SELECTION_CLIPBOARD
-			);
-		}
-
 		private void initialize_gdk_vars () {
 			this.display = this.get_display ();
-		}
-
-		private void complete_grid () {
-			// Add widgets to Main Box
-			quote_box.pack_start (this.quote_text);
-			quote_box.pack_start (this.quote_author);
-			quote_box.pack_start (this.quote_url);
-
-			// Add widgets to Stack
-			this.quote_stack.add_named (this.spinner, "spinner");
-			this.quote_stack.add_named (quote_box, "quote_box");
-
-			// Add widgets to Window
-			this.add(quote_stack);
-		}
-
-		private void style_provider () {
-			Gtk.CssProvider css_provider = new Gtk.CssProvider ();
-			css_provider.load_from_resource ("com/github/alonsoenrique/quotes/window.css");
-			Gtk.StyleContext.add_provider_for_screen (
-				Gdk.Screen.get_default (),
-				css_provider,
-				Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-			);
-		}
-
-		private string complete_quote () {
-			string complete_quote = this.quote_text.get_text () + " " +
-									this.quote_author.get_text () + " " +
-									this.quote_url.get_uri ();
-
-			return complete_quote;
 		}
 
 	}

@@ -40,7 +40,9 @@ public class Application : Gtk.Application {
 
 	public Soup.Session session { get; private set; }
 
-	public unowned string quote_host {
+	// TODO: Support multiples end points, maybe random selection
+	// Another api source: http://quotesondesign.com/wp-json/posts
+	public unowned string quotes_end_points {
 		get {
 			return "http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en";
 		}

@@ -31,6 +31,7 @@ VALA_PRECOMPILE (VALA_C ${EXEC_NAME}
     src/configs/Properties.vala
     src/utils/QuoteClient.vala
     src/widgets/Toolbar.vala
+    src/widgets/QuoteStack.vala
     src/MainWindow.vala
     src/Application.vala
 
