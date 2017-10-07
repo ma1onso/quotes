@@ -34,6 +34,8 @@ namespace Quotes {
 		public QuoteClient quote_client;
 		public QuoteStack quote_stack;
 		public Toolbar toolbar;
+		public Gtk.Grid grid;
+		public Gtk.InfoBar infobar;
 
 		public signal void search_begin ();
 		public signal void search_end (Json.Object? url, Error? e);
@@ -48,6 +50,12 @@ namespace Quotes {
 
 			this.set_border_width (12);
 			this.set_position (Gtk.WindowPosition.CENTER);
+			this.infobar = new Gtk.InfoBar ();
+			this.infobar.message_type = Gtk.MessageType.INFO;
+			this.infobar.no_show_all = true;
+			var content = infobar.get_content_area () as Gtk.Container;
+		 	Gtk.Label label = new Gtk.Label ("Failed to retrieve quote");
+		 	content.add (label);
 
 			this.initialize_gdk_vars ();
 
@@ -66,9 +74,13 @@ namespace Quotes {
 			this.connect_signals ();
 
 			this.add(this.quote_stack);
+			this.add(this.infobar);
 
 			this.style_provider ();
 
+			this.grid = new Gtk.Grid ();
+			this.grid.attach (infobar, 0, 0, 1, 1);
+			this.infobar.show_all();
 			this.show_all ();
 
 			// First api call
