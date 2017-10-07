@@ -32,7 +32,7 @@ namespace Quotes.Widgets {
 		public Gtk.ToolButton refresh_tool_button;
 		public Gtk.ToolButton copy_to_clipboard_button;
 		public Gtk.ToolButton share_button;
-		public Gtk.Popover popover;
+		public Gtk.Popover share_popover;
 		public Gtk.Button facebook_button;
 		public Gtk.Button twitter_button;
 		public Gtk.Button google_button;
@@ -63,8 +63,8 @@ namespace Quotes.Widgets {
 			this.share_button.set_tooltip_text ("Share in social networks");
 			this.add (this.share_button);
 
-			this.popover = new Gtk.Popover (this.share_button);
-			this.popover.set_position (Gtk.PositionType.BOTTOM);
+			this.share_popover = new Gtk.Popover (this.share_button);
+			this.share_popover.set_position (Gtk.PositionType.BOTTOM);
 
 			this.facebook_button = new Gtk.Button.from_icon_name (
 				"online-account-facebook", Gtk.IconSize.DND
@@ -101,20 +101,22 @@ namespace Quotes.Widgets {
 			container_share_grid.add (share_grid);
 			container_share_grid.show_all ();
 
-			this.popover.add (container_share_grid);
+			this.share_popover.add (container_share_grid);
 		}
 
-		public void events (MainWindow main_window) {
+		public void button_events (MainWindow main_window) {
 			this.refresh_tool_button.clicked.connect ( () => {
 				main_window.quote_client.quote_query.begin();
 			});
 
 			this.copy_to_clipboard_button.clicked.connect ( () => {
-				main_window.quote_stack.clipboard.set_text (main_window.quote_stack.complete_quote (), -1);
+				main_window.quote_stack.clipboard.set_text (
+					main_window.quote_stack.quote_data (), -1
+				);
 			});
 
 			this.share_button.clicked.connect ( () => {
-				this.popover.set_visible (true);
+				this.share_popover.set_visible (true);
 			});
 		}
 
@@ -124,7 +126,7 @@ namespace Quotes.Widgets {
 		    } catch (Error e) {
 		        warning ("%s", e.message);
 		    }
-		    this.popover.hide ();
+		    this.share_popover.hide ();
 		}
 
 		public void open_facebook_url (string social_network_url, string quote_uri, string quote_data) {
@@ -138,7 +140,7 @@ namespace Quotes.Widgets {
 			} catch (Error e) {
 				warning ("%s", e.message);
 			}
-			this.popover.hide ();
+			this.share_popover.hide ();
 		}
 
 		public void social_network_events (string quote_uri, string quote_data) {

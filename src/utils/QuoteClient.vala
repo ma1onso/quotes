@@ -24,34 +24,34 @@ namespace Quotes.Utils {
 	public class QuoteClient {
 
 		protected Application app;
-		protected MainWindow app_window;
+		protected MainWindow main_window;
 
-		public QuoteClient (MainWindow app_window) {
-			this.app_window = app_window;
-			this.app = (Application)app_window.application;
+		public QuoteClient (MainWindow main_window) {
+			this.main_window = main_window;
+			this.app = (Application) main_window.application;
 		}
 
 		public async void quote_query () {
-			this.app_window.search_begin ();
+			this.main_window.search_begin ();
 
 			Soup.URI uri = new Soup.URI (this.app.quotes_end_points);
 			Json.Parser parser = new Json.Parser();
-			Json.Object root_object;
+			Json.Object json_quotes;
 
 			try {
 				Soup.Request request = app.session.request(uri.to_string (false));
-				BufferedInputStream stream = new BufferedInputStream (
+				BufferedInputStream stream_quotes = new BufferedInputStream (
 					yield request.send_async (null)
 				);
 
 				// Read the JSON data and extract its root.
-				yield parser.load_from_stream_async(stream, null);
-				root_object = parser.get_root().get_object();
+				yield parser.load_from_stream_async(stream_quotes, null);
+				json_quotes = parser.get_root().get_object();
 
-				this.app_window.search_end (root_object, null);
+				this.main_window.search_end (json_quotes, null);
 			}
 			catch (Error error) {
-				this.app_window.search_end (null, error);
+				this.main_window.search_end (null, error);
 			}
 		}
 

@@ -25,7 +25,6 @@ namespace Quotes.Widgets {
 
 		protected Gtk.Box quote_box;
 
-		// TODO: use set and get methods
 		public Gtk.Label quote_text;
 		public Gtk.Label quote_author;
 		public Gtk.LinkButton quote_url;
@@ -54,7 +53,7 @@ namespace Quotes.Widgets {
 			this.spinner = new Gtk.Spinner ();
 			this.spinner.halign = Gtk.Align.CENTER;
 
-			// Add widgets to Main Box
+			// Add widgets to Quote Box
 			quote_box.pack_start (this.quote_text);
 			quote_box.pack_start (this.quote_author);
 			quote_box.pack_start (this.quote_url);
@@ -71,13 +70,30 @@ namespace Quotes.Widgets {
 			);
 		}
 
-		// TODO: Change for descriptive name
-		public string complete_quote () {
-			string complete_quote = this.quote_text.get_text () + " " +
+		public void set_quote_text (string quote_text) {
+			this.quote_text.set_text (
+				"\"" + quote_text._chomp () + "\""
+			);
+		}
+
+		public void set_quote_author (string author) {
+			if (author != "") {
+				this.quote_author.set_text (author);
+			} else {
+				this.quote_author.set_text ("Anonymous author");
+			}
+		}
+
+		public void set_quote_url (string url) {
+			this.quote_url.set_uri (url);
+		}
+
+		public string quote_data () {
+			string quote_data = this.quote_text.get_text () + " " +
 									this.quote_author.get_text () + " " +
 									this.quote_url.get_uri ();
 
-			return complete_quote;
+			return quote_data;
 		}
 
 	}

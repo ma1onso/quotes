@@ -52,13 +52,15 @@ namespace Quotes {
 			this.initialize_gdk_vars ();
 
 			this.quote_client = new QuoteClient (this);
+
 			this.quote_stack = new QuoteStack ();
 			this.quote_stack.set_clipboard (this.display);
+
 			this.toolbar = new Toolbar ();
 			this.set_titlebar (this.toolbar);
-			this.toolbar.events (this);
+			this.toolbar.button_events (this);
 			this.toolbar.social_network_events (
-				this.quote_stack.quote_url.get_uri(), this.quote_stack.complete_quote ()
+				this.quote_stack.quote_url.get_uri(), this.quote_stack.quote_data ()
 			);
 
 			this.connect_signals ();
@@ -108,19 +110,9 @@ namespace Quotes {
 				return;
 			}
 
-			// TODO: Move the below code to QuoteStack class
-			// Set quote text
-			this.quote_stack.quote_text.set_text (
-				"\"" + quote.get_string_member ("quoteText")._chomp () + "\""
-			);
-			// Set quote author
-			if (quote.get_string_member ("quoteAuthor") != "") {
-				this.quote_stack.quote_author.set_text (quote.get_string_member ("quoteAuthor"));
-			} else {
-				this.quote_stack.quote_author.set_text ("Anonymous author");
-			}
-			// Set quote uri
-			this.quote_stack.quote_url.set_uri (quote.get_string_member ("quoteLink"));
+			this.quote_stack.set_quote_text (quote.get_string_member ("quoteText"));
+			this.quote_stack.set_quote_author (quote.get_string_member ("quoteAuthor"));
+			this.quote_stack.set_quote_url (quote.get_string_member ("quoteLink"));
 
 			this.quote_stack.set_visible_child_name ("quote_box");
 		}
