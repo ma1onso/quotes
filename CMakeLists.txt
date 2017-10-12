@@ -10,7 +10,7 @@ SET (PKGDATADIR, "${DATADIR}/com.github.alonsoenrique.quotes")
 
 SET (EXEC_NAME "com.github.alonsoenrique.quotes")
 SET (RELEASE_NAME "Quotes for daily inspiration")
-SET (VERSION "0.4")
+SET (VERSION "0.5.6")
 SET (VERSION_INFO "Initial release")
 
 FIND_PACKAGE (PkgConfig)

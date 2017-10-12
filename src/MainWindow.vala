@@ -49,6 +49,7 @@ namespace Quotes {
 			this.set_border_width (12);
 			this.set_position (Gtk.WindowPosition.CENTER);
 
+			this.connect_signals ();
 			this.initialize_gdk_vars ();
 
 			this.quote_client = new QuoteClient (this);
@@ -59,11 +60,7 @@ namespace Quotes {
 			this.toolbar = new Toolbar ();
 			this.set_titlebar (this.toolbar);
 			this.toolbar.button_events (this);
-			this.toolbar.social_network_events (
-				this.quote_stack.quote_url.get_uri(), this.quote_stack.quote_data ()
-			);
-
-			this.connect_signals ();
+			this.social_network_events ();
 
 			this.add(this.quote_stack);
 
@@ -120,6 +117,21 @@ namespace Quotes {
 		private void connect_signals () {
 			this.search_begin.connect (this.on_search_begin);
 			this.search_end.connect (this.on_search_end);
+		}
+
+		// TODO: Move this to Toobar.vala
+		public void social_network_events () {
+			this.toolbar.facebook_button.clicked.connect (() => {
+				this.toolbar.open_facebook_url ("https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", this.quote_stack.quote_url.get_uri(), this.quote_stack.quote_data ());
+			});
+
+			this.toolbar.twitter_button.clicked.connect (() => {
+				this.toolbar.open_url ("http://twitter.com/home/?status=%s", this.quote_stack.quote_data ());
+			});
+
+			this.toolbar.google_button.clicked.connect (() => {
+				this.toolbar.open_url ("https://plus.google.com/share?text=%s", this.quote_stack.quote_data ());
+			});
 		}
 
 	}

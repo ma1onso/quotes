@@ -17,6 +17,16 @@
     <provides>
         <binary>com.github.alonsoenrique.quotes</binary>
     </provides>
+    <releases>
+        <release version="0.5.6" date="2017-10-11">
+            <description>
+                <p>Release: Fix AppStream data</p>
+                <ul>
+                    <li>Fix AppStream screenshot reference</li>
+                </ul>
+            </description>
+        </release>
+    </releases>
     <screenshots>
         <screenshot type="default">
             <image>https://raw.githubusercontent.com/AlonsoEnrique/Quotes/master/data/images/Screenshot.png</image>
