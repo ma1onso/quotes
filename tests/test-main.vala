@@ -19,10 +19,15 @@
 * Authored by: Author <alons45@gmail.com>
 */
 
-void main (string [] args) {
-    Test.init (reg args);
+namespace Quotes.Tests {
 
-    TestSuite.get_root ().add_suite (new QuoteStackTest ().get_suite ());
+    public static void main(string[] args) {
+        Test.init(ref args);
+        Gtk.init(ref args);
 
-    Test.run ();
+        TestSuite.get_root ().add_suite (new QuoteStackTest ().get_suite ());
+
+        Test.run ();
+    }
+
 }
