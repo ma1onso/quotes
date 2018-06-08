@@ -143,6 +143,21 @@ namespace Quotes.Widgets {
 			this.share_popover.hide ();
 		}
 
+		// TODO: Move this to Toolbar.vala
+		public void social_network_events (MainWindow main_window) {
+			this.facebook_button.clicked.connect (() => {
+				this.open_facebook_url ("https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", main_window.quote_stack.quote_url.get_uri(), main_window.quote_stack.quote_data ());
+			});
+
+			this.twitter_button.clicked.connect (() => {
+				this.open_url ("http://twitter.com/home/?status=%s", main_window.quote_stack.quote_data ());
+			});
+
+			this.google_button.clicked.connect (() => {
+				this.open_url ("https://plus.google.com/share?text=%s", main_window.quote_stack.quote_data ());
+			});
+		}
+
 	}
 
 }
