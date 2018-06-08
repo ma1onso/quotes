@@ -31,7 +31,6 @@ namespace Quotes.Utils {
 			this.app = (Application) main_window.application;
 		}
 
-		// TODO: ‘g_simple_async_result_new’ is deprecated: Use 'g_task_new' instead [-Wdeprecated-declarations]
 		public async void quote_query () {
 			this.main_window.search_begin ();
 

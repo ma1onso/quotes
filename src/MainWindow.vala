@@ -119,7 +119,7 @@ namespace Quotes {
 			this.search_end.connect (this.on_search_end);
 		}
 
-		// TODO: Move this to Toobar.vala
+		// TODO: Move this to Toolbar.vala
 		public void social_network_events () {
 			this.toolbar.facebook_button.clicked.connect (() => {
 				this.toolbar.open_facebook_url ("https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", this.quote_stack.quote_url.get_uri(), this.quote_stack.quote_data ());
