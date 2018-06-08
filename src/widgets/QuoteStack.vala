@@ -70,12 +70,10 @@ namespace Quotes.Widgets {
 			);
 		}
 
-		// TODO: warning: passing argument 1 of ‘g_strchomp’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
 		public void set_quote_text (string quote_text) {
-			string text = quote_text._chomp ();
-
+			// TODO: recovery quote_text.chomp () implementation when warning... runaway :D
 			this.quote_text.set_text (
-				"\"" + text + "\""
+				"\"" + quote_text + "\""
 			);
 		}
 
