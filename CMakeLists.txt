@@ -1,6 +1,6 @@
 PROJECT (com.github.alonsoenrique.quotes)
 
-CMAKE_MINIMUM_REQUIRED (VERSION 2.6)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.0)
 
 LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/src)
@@ -49,8 +49,6 @@ GLIB_COMPILE_RESOURCES (GLIB_RESOURCES_CSS SOURCE data/css/css.gresource.xml)
 INCLUDE (GSettings)
 ADD_SCHEMA ("data/com.github.alonsoenrique.quotes.gschema.xml")
 
-ADD_SUBDIRECTORY (tests)
-
 ADD_EXECUTABLE (${EXEC_NAME} ${VALA_C} ${GLIB_RESOURCES_ICONS} ${GLIB_RESOURCES_CSS})
 
 INSTALL (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
@@ -63,3 +61,9 @@ INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/images/icons/32/com.github.alons
 INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/images/icons/48/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/48x48/apps/)
 INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/images/icons/64/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/64x64/apps/)
 INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/images/icons/128/com.github.alonsoenrique.quotes.svg DESTINATION ${DATADIR}/icons/hicolor/128x128/apps/)
+
+OPTION (BUILD_TESTS "Build a unit test executable." OFF)
+
+if (BUILD_TESTS)
+    add_subdirectory (tests)
+endif (BUILD_TESTS)
