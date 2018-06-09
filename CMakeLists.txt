@@ -8,6 +8,7 @@ LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/src)
 SET (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 SET (PKGDATADIR, "${DATADIR}/com.github.alonsoenrique.quotes")
 
+SET (APP_ID "com.github.alonsoenrique.quotes")
 SET (EXEC_NAME "com.github.alonsoenrique.quotes")
 SET (RELEASE_NAME "Quotes for daily inspiration")
 SET (VERSION "0.5.6")
