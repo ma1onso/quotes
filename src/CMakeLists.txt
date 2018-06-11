@@ -1,3 +1,6 @@
+# Create Constants.vala
+configure_file (${CMAKE_CURRENT_SOURCE_DIR}/configs/Constants.vala.cmake ${CMAKE_CURRENT_SOURCE_DIR}/configs/Constants.vala)
+
 INCLUDE (ValaPrecompile)
 VALA_PRECOMPILE (VALA_C ${LIBNAME}
     configs/Constants.vala
