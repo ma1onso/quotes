@@ -14,9 +14,22 @@ SET (RELEASE_NAME "Quotes for daily inspiration")
 SET (VERSION "0.5.6")
 SET (VERSION_INFO "Initial release")
 
+SET (APIVERSION 0)
+SET (LIBNAME ${EXEC_NAME}-${APIVERSION})
+SET (LIBVERSION "0")
+SET (SOVERSION 0)
+
+# The path where library files should be searched for
+set (LIBRARY_PATH "src")
+
 FIND_PACKAGE (PkgConfig)
 
 PKG_CHECK_MODULES (DEPS REQUIRED gtk+-3.0 libsoup-2.4 json-glib-1.0)
+SET(APPLICATION_DEPS
+    gtk+-3.0>=3.12
+    libsoup-2.4
+    json-glib-1.0
+)
 
 ADD_DEFINITIONS (${DEPS_CFLAGS})
 LINK_LIBRARIES (${DEPS_LIBRARIES})
@@ -26,20 +39,17 @@ FIND_PACKAGE (Vala REQUIRED)
 INCLUDE (ValaVersion)
 ENSURE_VALA_VERSION ("0.26" MINIMUM)
 
+add_subdirectory (src)
+
 INCLUDE (ValaPrecompile)
 VALA_PRECOMPILE (VALA_C ${EXEC_NAME}
-    src/configs/Constants.vala
-    src/configs/Properties.vala
-    src/utils/QuoteClient.vala
-    src/widgets/Toolbar.vala
-    src/widgets/QuoteStack.vala
-    src/MainWindow.vala
-    src/Application.vala
+    src/Main.vala
 
 PACKAGES
-    gtk+-3.0>=3.12
-    libsoup-2.4
-    json-glib-1.0
+    ${APPLICATION_DEPS}
+    
+CUSTOM_VAPIS
+    ${CMAKE_BINARY_DIR}/${LIBRARY_PATH}/${LIBNAME}_internal.vapi
 )
 
 INCLUDE (GResource)
@@ -50,9 +60,17 @@ GLIB_COMPILE_RESOURCES (GLIB_RESOURCES_CSS SOURCE data/css/css.gresource.xml)
 INCLUDE (GSettings)
 ADD_SCHEMA ("data/com.github.alonsoenrique.quotes.gschema.xml")
 
+# tell cmake what to call the executable we just made
 ADD_EXECUTABLE (${EXEC_NAME} ${VALA_C} ${GLIB_RESOURCES_ICONS} ${GLIB_RESOURCES_CSS})
+add_dependencies (${EXEC_NAME} ${LIBNAME})
+target_link_libraries (${EXEC_NAME} ${DEPS_LIBRARIES} ${LIBNAME})
+
+set_target_properties (${EXEC_NAME} PROPERTIES
+    INCLUDE_DIRECTORIES ${CMAKE_BINARY_DIR}/${LIBRARY_PATH}
+)
 
 INSTALL (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
+
 INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.alonsoenrique.quotes.desktop DESTINATION ${DATADIR}/applications/)
 INSTALL (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.alonsoenrique.quotes.appdata.xml DESTINATION ${DATADIR}/metainfo/)
 
