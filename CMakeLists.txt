@@ -32,7 +32,7 @@ FIND_PACKAGE (Vala REQUIRED)
 INCLUDE (ValaVersion)
 ENSURE_VALA_VERSION ("0.26" MINIMUM)
 
-# compile library (src project)
+# compile library from src folder
 ADD_SUBDIRECTORY (src)
 
 INCLUDE (ValaPrecompile)
