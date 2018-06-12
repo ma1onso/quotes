@@ -20,6 +20,6 @@ add_executable (${TEST_EXEC_NAME} ${VALA_C})
 add_dependencies (${TEST_EXEC_NAME} ${LIBNAME})
 target_link_libraries (${TEST_EXEC_NAME} ${DEPS_LIBRARIES} ${LIBNAME})
 
-set_target_properties (${TEST_EXECUTABLE_NAME} PROPERTIES
+set_target_properties (${TEST_EXEC_NAME} PROPERTIES
     INCLUDE_DIRECTORIES ${CMAKE_BINARY_DIR}/${LIBRARY_PATH}
 )
