@@ -5,6 +5,7 @@ INCLUDE (ValaPrecompile)
 VALA_PRECOMPILE (VALA_C ${TEST_EXEC_NAME}
     TestCase.vala
     ConstantsTest.vala
+    PropertiesTest.vala
     TestMain.vala
 
 # tell what libraries to use when compiling
