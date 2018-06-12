@@ -6,7 +6,7 @@ public class ConstantsTest : TestCase {
     public ConstantsTest () {
         base ("Constants");
 
-        add_test ("constants", constans);
+        add_test ("constants", test_constants);
     }
 
     public override void set_up () {
@@ -15,7 +15,7 @@ public class ConstantsTest : TestCase {
     public override void tear_down () {
     }
 
-    public void constans () {
+    public void test_constants () {
         assert (Constants.ID == "com.github.alonsoenrique.quotes");
         assert (Constants.VERSION == "0.5.6");
         assert (Constants.PROGRAME_NAME == "Quotes");
