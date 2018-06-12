@@ -24,8 +24,8 @@ namespace Quotes.Configs {
      */
     public class Constants {
 
-        public abstract const string ID = "com.github.alonsoenrique.quotes";
-        public abstract const string VERSION = "0.5.1";
+        public abstract const string ID = "@APP_ID@";
+        public abstract const string VERSION = "@VERSION@";
         public abstract const string PROGRAME_NAME = "Quotes";
         public abstract const string APP_YEARS = "2017";
         public abstract const string APP_ICON = "com.github.alonsoenrique.quotes";
