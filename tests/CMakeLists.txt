@@ -1,8 +1,8 @@
-set (TEST_EXEC_NAME ${APP_ID}-tests)
+SET (TEST_EXEC_NAME ${APP_ID}-tests)
 
 # files we want to compile
-include (ValaPrecompile)
-vala_precompile (VALA_C ${TEST_EXEC_NAME}
+INCLUDE (ValaPrecompile)
+VALA_PRECOMPILE (VALA_C ${TEST_EXEC_NAME}
     TestCase.vala
     ConstantsTest.vala
     TestMain.vala
@@ -16,10 +16,10 @@ CUSTOM_VAPIS
 )
 
 # tell cmake what to call the executable we just made
-add_executable (${TEST_EXEC_NAME} ${VALA_C})
-add_dependencies (${TEST_EXEC_NAME} ${LIBNAME})
-target_link_libraries (${TEST_EXEC_NAME} ${DEPS_LIBRARIES} ${LIBNAME})
+ADD_EXECUTABLE (${TEST_EXEC_NAME} ${VALA_C})
+ADD_DEPENDENCIES (${TEST_EXEC_NAME} ${LIBNAME})
+TARGET_LINK_LIBRARIES (${TEST_EXEC_NAME} ${DEPS_LIBRARIES} ${LIBNAME})
 
-set_target_properties (${TEST_EXEC_NAME} PROPERTIES
+SET_TARGET_PROPERTIES (${TEST_EXEC_NAME} PROPERTIES
     INCLUDE_DIRECTORIES ${CMAKE_BINARY_DIR}/${LIBRARY_PATH}
 )
