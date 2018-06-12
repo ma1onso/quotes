@@ -20,7 +20,6 @@
  *  Julien Peeters <contact@julienpeeters.fr>
  */
 
-namespace Quotes.Gee {
 
 public abstract class TestCase : Object {
 
@@ -83,4 +82,3 @@ public abstract class TestCase : Object {
     }
 }
 
-}

@@ -1,13 +1,11 @@
-using Quotes;
-// using Quotes.Config;
+using Quotes.Configs;
 
 
-public class ConstantsTest : Gee.TestCase {
+public class ConstantsTest : TestCase {
 
     public ConstantsTest () {
-        base ("ConstantsTest");
+        base ("Constants");
 
-        add_test ("foo", test_foo);
         add_test ("constants", constans);
     }
 
@@ -17,11 +15,7 @@ public class ConstantsTest : Gee.TestCase {
     public override void tear_down () {
     }
 
-    public void test_foo () {
-        assert (1 == 1);
-    }
-
     public void constans () {
-        // assert (Constants.ID == "com.github.alonsoenrique.quotes");
+        assert (Constants.ID == "com.github.alonsoenrique.quotes");
     }
 }
