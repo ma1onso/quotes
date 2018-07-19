@@ -2,6 +2,7 @@
 <!-- Copyright 2017 Alonso Enrique <alons45@gmail.com> -->
 <component type="desktop">
     <id>com.github.alonsoenrique.quotes.desktop</id>
+    <content_rating type="oars-1.1" />
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>GPL-3.0+</project_license>
     <name>Quotes</name>
