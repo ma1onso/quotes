@@ -9,7 +9,7 @@ SET (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 SET (APP_ID "com.github.alonsoenrique.quotes")
 SET (EXEC_NAME "com.github.alonsoenrique.quotes")
 SET (RELEASE_NAME "Quotes for daily inspiration")
-SET (VERSION "0.5.6")
+SET (VERSION "0.5.9")
 SET (VERSION_INFO "Release")
 SET (LIBNAME lib-${EXEC_NAME})
 # the path where library files should be searched for
