@@ -1,5 +1,1 @@
-build/*
-*.sh
-*~
-src/configs/Constants.vala
-
+build

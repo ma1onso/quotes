@@ -1,0 +1,72 @@
+# Kongo translations for extra package.
+# Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-01 20:59+0200\n"
+"PO-Revision-Date: 2019-04-01 20:59+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: kg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.alonsoenrique.quotes.desktop.in:3
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:7
+msgid "Quotes"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.desktop.in:4
+msgid "Quotes App"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.desktop.in:5
+msgid "Get quotes for daily inspiration"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.desktop.in:8
+msgid "com.github.alonsoenrique.quotes"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.desktop.in:12
+msgid "Quotes;Inspiration;"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:8
+msgid "Quotes for daily inspiration"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:10
+msgid ""
+"Get random quotes for daily inspiration, share and get another quotes ;), be "
+"happy."
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:12
+msgid "Get random quotes"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:13
+msgid "Copy to clipboard"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:14
+msgid "Share in social networks"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:23
+msgid "Release: Fix AppStream data"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:25
+msgid "Fix AppStream screenshot reference"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:64
+msgid "Alonso Enrique"
+msgstr ""

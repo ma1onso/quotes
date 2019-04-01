@@ -47,7 +47,7 @@ namespace Quotes.Widgets {
 			this.quote_author.set_selectable (true);
 			this.quote_author.get_style_context ().add_class ("quote-author");
 
-			this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
+			this.quote_url = new Gtk.LinkButton.with_label ("", (_("Link to quote")));
 			this.quote_url.get_style_context ().add_class ("quote-url");
 
 			this.spinner = new Gtk.Spinner ();
@@ -81,7 +81,7 @@ namespace Quotes.Widgets {
 			if (author != "") {
 				this.quote_author.set_text (author);
 			} else {
-				this.quote_author.set_text ("Anonymous author");
+				this.quote_author.set_text (_("Anonymous author"));
 			}
 		}
 

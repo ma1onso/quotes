@@ -1,0 +1,65 @@
+# Cornish translations for com.github.alonsoenrique.quotes package.
+# Copyright (C) 2019 THE com.github.alonsoenrique.quotes'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.alonsoenrique.quotes package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.alonsoenrique.quotes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-01 20:58+0200\n"
+"PO-Revision-Date: 2019-04-01 20:58+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: kw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/configs/Constants.vala:29 src/configs/Properties.vala:30
+msgid "Quotes"
+msgstr ""
+
+#: src/configs/Constants.vala:32
+msgid "Quotes for daily inspiration"
+msgstr ""
+
+#: src/configs/Properties.vala:31
+msgid "Close"
+msgstr ""
+
+#: src/configs/Properties.vala:32
+msgid "Welcome"
+msgstr ""
+
+#: src/widgets/QuoteStack.vala:50
+msgid "Link to quote"
+msgstr ""
+
+#: src/widgets/QuoteStack.vala:84
+msgid "Anonymous author"
+msgstr ""
+
+#: src/widgets/Toolbar.vala:49
+msgid "Get another random quote"
+msgstr ""
+
+#: src/widgets/Toolbar.vala:56
+msgid "Copy to clipboard"
+msgstr ""
+
+#: src/widgets/Toolbar.vala:63
+msgid "Share in social networks"
+msgstr ""
+
+#: src/widgets/Toolbar.vala:72
+msgid "Facebook"
+msgstr ""
+
+#: src/widgets/Toolbar.vala:80
+msgid "Twitter"
+msgstr ""
+
+#: src/widgets/Toolbar.vala:88
+msgid "Google Plus"
+msgstr ""

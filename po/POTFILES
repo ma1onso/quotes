@@ -1,0 +1,4 @@
+src/configs/Constants.vala
+src/configs/Properties.vala
+src/widgets/QuoteStack.vala
+src/widgets/Toolbar.vala

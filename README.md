@@ -9,30 +9,32 @@ Quotes for daily inspiration
 
 [![Pay for quotes](https://cdn4.iconfinder.com/data/icons/simple-peyment-methods/512/paypal-64.png)](https://paypal.me/alonsoenrique)
 
-## Building, Testing, and Installation
+## Dependencies
 
-You'll need the following dependencies:
-* cmake
+Please make sure you have these dependencies first before building:
+
+* meson
 * libgtk-3-dev
 * libgranite-dev
 * valac
 * libsoup2.4-dev
 * libjson-glib-dev
 
-It's recommended to create a clean build environment
+## Building
 
-    mkdir build
-    cd build/
+You can clone this repository and do the following commands:
 
-Run `cmake` to configure the build environment and then `make` to build
+```bash
+meson build && cd build
+meson configure --prefix=/usr
+sudo ninja install
+```
 
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
+Then you can simply run Quotes by using:
 
-To install, use `make install`, then execute with `com.github.alonsoenrique.quotes`
-
-    sudo make install
+```bash
     com.github.alonsoenrique.quotes
+```
 
 To build .deb file (The deb file should be available in the parent directory of the current directory)
 
