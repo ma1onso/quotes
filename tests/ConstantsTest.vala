@@ -29,7 +29,7 @@ public class ConstantsTest : TestCase {
         assert (Constants.TRANSLATE_URL == "https://github.com/AlonsoEnrique/Quotes");
         assert (Constants.TEXT_FOR_ABOUT_DIALOG_WEBSITE == "Website");
         assert (Constants.TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL == "https://github.com/AlonsoEnrique/");
-        assert (Constants.URL_CSS == "com/github/alonsoenrique/quotes/window.css");
+        assert (Constants.URL_CSS == "com/github/alonsoenrique/quotes/application.css");
         assert (Constants.ABOUT_AUTHORS [0] == "Alonso Enrique <alons45@gmail.com>");
         assert (Constants.ABOUT_LICENSE_TYPE ==  Gtk.License.GPL_3_0);
     }

@@ -37,7 +37,7 @@ namespace Quotes.Configs {
         public abstract const string TRANSLATE_URL = "https://github.com/AlonsoEnrique/Quotes";
         public abstract const string TEXT_FOR_ABOUT_DIALOG_WEBSITE = "Website";
         public abstract const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://github.com/AlonsoEnrique/";
-        public abstract const string URL_CSS = "com/github/alonsoenrique/quotes/window.css";
+        public abstract const string URL_CSS = "com/github/alonsoenrique/quotes/application.css";
         public abstract const string [] ABOUT_AUTHORS = { "Alonso Enrique <alons45@gmail.com>" };
         public abstract const Gtk.License ABOUT_LICENSE_TYPE = Gtk.License.GPL_3_0;
 

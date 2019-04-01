@@ -9,8 +9,8 @@ add_global_arguments(
 )
 
 asresources = gnome.compile_resources(
-    'as-resources', 'data/style.gresource.xml',
-    source_dir: 'data',
+    'as-resources', 'data/icons/icons.gresource.xml',
+    source_dir: 'data/icons',
     c_name: 'as'
 )
 
