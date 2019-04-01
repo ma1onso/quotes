@@ -35,7 +35,6 @@ namespace Quotes.Widgets {
 		public Gtk.Popover share_popover;
 		public Gtk.Button facebook_button;
 		public Gtk.Button twitter_button;
-		public Gtk.Button google_button;
 
 		public Toolbar () {
 			this.set_title (Properties.TITLE_HEADER_BAR);
@@ -82,19 +81,10 @@ namespace Quotes.Widgets {
 				Gtk.STYLE_CLASS_FLAT
 			);
 
-			this.google_button = new Gtk.Button.from_icon_name (
-				"online-account-google-plus", Gtk.IconSize.DND
-			);
-			this.google_button.tooltip_text = _("Google Plus");
-			this.google_button.get_style_context ().add_class (
-				Gtk.STYLE_CLASS_FLAT
-			);
-
 			share_grid = new Gtk.Grid ();
 			share_grid.margin = 6;
 			share_grid.add (this.facebook_button);
 			share_grid.add (this.twitter_button);
-			share_grid.add (this.google_button);
 
 			container_share_grid = new Gtk.Grid ();
 			container_share_grid.orientation = Gtk.Orientation.VERTICAL;
@@ -150,10 +140,6 @@ namespace Quotes.Widgets {
 
 			this.twitter_button.clicked.connect (() => {
 				this.open_url ("http://twitter.com/home/?status=%s", main_window.quote_stack.quote_data ());
-			});
-
-			this.google_button.clicked.connect (() => {
-				this.open_url ("https://plus.google.com/share?text=%s", main_window.quote_stack.quote_data ());
 			});
 		}
 
