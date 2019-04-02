@@ -5,9 +5,20 @@ foreach i : icon_size
         join_paths('icons', i, meson.project_name() + '.svg'),
         install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps')
     )
+endforeach
+
+ social_icons = [
+     'online-account-facebook',
+     'online-account-reddit',
+     'online-account-telegram',
+     'online-account-tumblr',
+     'online-account-twitter'
+ ]
+
+foreach s : social_icons
     install_data(
-        join_paths('icons', i, meson.project_name() + '.svg'),
-        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'mimetypes')
+        join_paths('icons', s + '.svg'),
+        install_dir: join_paths(get_option('datadir'), meson.project_name(), 'icons')
     )
 endforeach
 
