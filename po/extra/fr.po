@@ -1,7 +1,7 @@
 # French translations for extra package.
 # Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Automatically generated, 2019.
+# NathanBnm, 2019.
 #
 msgid ""
 msgstr ""
@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-02 12:40+0200\n"
 "PO-Revision-Date: 2019-04-01 20:59+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: NathanBnm\n"
+"Language-Team: Français\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,78 +20,80 @@ msgstr ""
 #: data/com.github.alonsoenrique.quotes.desktop.in:3
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:7
 msgid "Quotes"
-msgstr ""
+msgstr "Citations"
 
 #: data/com.github.alonsoenrique.quotes.desktop.in:4
 msgid "Quotes App"
-msgstr ""
+msgstr "Application Citations"
 
 #: data/com.github.alonsoenrique.quotes.desktop.in:5
 msgid "Get quotes for daily inspiration"
-msgstr ""
+msgstr "Obtenez des citations pour une inspiration quotidienne"
 
 #: data/com.github.alonsoenrique.quotes.desktop.in:8
 msgid "com.github.alonsoenrique.quotes"
-msgstr ""
+msgstr "com.github.alonsoenrique.quotes"
 
 #: data/com.github.alonsoenrique.quotes.desktop.in:12
 msgid "Quotes;Inspiration;"
-msgstr ""
+msgstr "Citations;Inspiration;"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:8
 msgid "Quotes for daily inspiration"
-msgstr ""
+msgstr "Des citations pour une inspiration quotidienne"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:10
 msgid ""
 "Get random quotes for daily inspiration, share and get another quotes ;), be "
 "happy."
 msgstr ""
+"Obtenez des citations aléatoires pour une inspiration quotidienne, partagez et "
+"obtenez d'autres citations ;), soyez heureux."
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:12
 msgid "Get random quotes"
-msgstr ""
+msgstr "Obtenez des citations aléatoires"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:13
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiez dans le presse-papiers"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:14
 msgid "Share in social networks"
-msgstr ""
+msgstr "Partagez sur les réseaux sociaux"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:23
 msgid "Release: major update"
-msgstr ""
+msgstr "Version : Mise à jour majeure"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:25
 msgid "Switch from cmake to meson build"
-msgstr ""
+msgstr "Passage de cmake a meson"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:26
 msgid "Remove the Google+ sharing button"
-msgstr ""
+msgstr "Suppression du bouton de partage vers Google+"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:27
 msgid "Make the app translatable"
-msgstr ""
+msgstr "L'application peut désormais être traduite"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:28
 msgid "French translations by @NathanBnm"
-msgstr ""
+msgstr "Traductions en français par @NathanBnm"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:29
 msgid "Fixes and improvements"
-msgstr ""
+msgstr "Corrections et améliorations"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:35
 msgid "Release: Fix AppStream data"
-msgstr ""
+msgstr "Version : Correction des données de l'application"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:37
 msgid "Fix AppStream screenshot reference"
-msgstr ""
+msgstr "Correction de la capture d'écran"
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:76
 msgid "Alonso Enrique"
-msgstr ""
+msgstr "Alonso Enrique"
