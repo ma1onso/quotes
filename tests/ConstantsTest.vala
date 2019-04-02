@@ -16,9 +16,9 @@ public class ConstantsTest : TestCase {
     }
 
     public void test_constants () {
-        assert (Constants.ID == "com.github.alonsoenrique.quotes");
-        assert (Constants.VERSION == "0.5.6");
         assert (Constants.PROGRAME_NAME == "Quotes");
+        assert (Constants.ID == "com.github.alonsoenrique.quotes");
+        assert (Constants.VERSION == "0.6.0");
         assert (Constants.APP_YEARS == "2017");
         assert (Constants.APP_ICON == "com.github.alonsoenrique.quotes");
         assert (Constants.ABOUT_COMMENTS == "Quotes for daily inspiration");
