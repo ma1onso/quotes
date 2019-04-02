@@ -73,7 +73,7 @@ namespace Quotes.Widgets {
 		public void set_quote_text (string quote_text) {
 			// TODO: recovery quote_text.chomp () implementation when warning... runaway :D
 			this.quote_text.set_text (
-				"\"" + quote_text + "\""
+				"🙶" + quote_text + "🙷"
 			);
 		}
 
