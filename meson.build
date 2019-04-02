@@ -1,4 +1,4 @@
-project('com.github.alonsoenrique.quotes','vala', 'c', version: '4.0.0')
+project('com.github.alonsoenrique.quotes','vala', 'c', version: '1.0.0')
 
 gnome = import('gnome')
 i18n = import('i18n')
@@ -15,8 +15,6 @@ asresources = gnome.compile_resources(
 )
 
 subdir('src')
-subdir('po')
-subdir('data')
 
 executable(
     meson.project_name(),
@@ -30,3 +28,8 @@ executable(
     ],
     install: true
 )
+
+subdir('data')
+subdir('po')
+
+meson.add_install_script('meson/post_install.py')
