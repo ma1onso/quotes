@@ -35,9 +35,3 @@ Then you can simply run Quotes by using:
 ```bash
 com.github.alonsoenrique.quotes
 ```
-
-To build .deb file (The deb file should be available in the parent directory of the current directory)
-
-     dpkg-buildpackage -B -tc
-
-`B`: binary-only, only arch-specific files and `tc`: clean source tree when finished
