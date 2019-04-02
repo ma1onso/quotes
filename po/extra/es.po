@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 20:59+0200\n"
+"POT-Creation-Date: 2019-04-02 12:40+0200\n"
 "PO-Revision-Date: 2019-04-01 20:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -61,13 +61,37 @@ msgid "Share in social networks"
 msgstr ""
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:23
-msgid "Release: Fix AppStream data"
+msgid "Release: major update"
 msgstr ""
 
 #: data/com.github.alonsoenrique.quotes.appdata.xml.in:25
+msgid "Switch from cmake to meson build"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:26
+msgid "Remove the Google+ sharing button"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:27
+msgid "Make the app translatable"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:28
+msgid "French translations by @NathanBnm"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:29
+msgid "Fixes and improvements"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:35
+msgid "Release: Fix AppStream data"
+msgstr ""
+
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:37
 msgid "Fix AppStream screenshot reference"
 msgstr ""
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:64
+#: data/com.github.alonsoenrique.quotes.appdata.xml.in:76
 msgid "Alonso Enrique"
 msgstr ""
