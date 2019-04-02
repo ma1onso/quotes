@@ -18,6 +18,18 @@
         <binary>com.github.alonsoenrique.quotes</binary>
     </provides>
     <releases>
+        <release version="0.6.0" date="2018-04-30">
+            <description>
+                <p>Release: major update</p>
+                <ul>
+                    <li>Switch from cmake to meson build</li>
+                    <li>Remove the Google+ sharing button</li>
+                    <li>Make the app translatable</li>
+                    <li>French translations by @NathanBnm</li>
+                    <li>Fixes and improvements</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.5.6" date="2017-10-11">
             <description>
                 <p>Release: Fix AppStream data</p>

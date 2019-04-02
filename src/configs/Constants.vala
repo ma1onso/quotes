@@ -26,7 +26,7 @@ namespace Quotes.Configs {
 
         public abstract const string PROGRAME_NAME = (_("Quotes"));
         public abstract const string ID = "com.github.alonsoenrique.quotes";
-        public abstract const string VERSION = "1.0.0";
+        public abstract const string VERSION = "0.6.0";
         public abstract const string APP_YEARS = "2017";
         public abstract const string APP_ICON = "com.github.alonsoenrique.quotes";
         public abstract const string ABOUT_COMMENTS = (_("Quotes for daily inspiration"));

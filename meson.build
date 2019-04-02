@@ -1,4 +1,4 @@
-project('com.github.alonsoenrique.quotes','vala', 'c', version: '1.0.0')
+project('com.github.alonsoenrique.quotes','vala', 'c', version: '0.6.0')
 
 gnome = import('gnome')
 i18n = import('i18n')
