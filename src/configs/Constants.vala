@@ -1,5 +1,5 @@
-/* Copyright 2017 Robert San <robertsanseries@gmail.com>
-*
+/* Copyright 2017 Alonso Enrique <alons45@gmail.com> (http://github.com/alons45/quotes)
+
 * This program is free software: you can redistribute it
 * and/or modify it under the terms of the GNU General Public License as
 * published by the Free Software Foundation, either version 3 of the
@@ -24,9 +24,9 @@ namespace Quotes.Configs {
      */
     public class Constants {
 
-        public abstract const string ID = "@APP_ID@";
-        public abstract const string VERSION = "@VERSION@";
         public abstract const string PROGRAME_NAME = (_("Quotes"));
+        public abstract const string ID = "com.github.alonsoenrique.quotes";
+        public abstract const string VERSION = "1.0.0";
         public abstract const string APP_YEARS = "2017";
         public abstract const string APP_ICON = "com.github.alonsoenrique.quotes";
         public abstract const string ABOUT_COMMENTS = (_("Quotes for daily inspiration"));

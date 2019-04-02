@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2017 Robert San <robertsanseries@gmail.com>
+* Copyright (c) 2017 Alonso Enrique <alons45@gmail.com> (http://github.com/alons45/quotes)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
