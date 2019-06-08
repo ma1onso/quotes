@@ -111,7 +111,7 @@ namespace Quotes {
 			this.quote_stack.set_quote_author (quote.get_string_member ("quoteAuthor"));
 			this.quote_stack.set_quote_url (quote.get_string_member ("quoteLink"));
 
-			this.quote_stack.set_visible_child_name ("quote_box");
+			this.quote_stack.set_visible_child_name ("quote_overlay");
 		}
 
 		private void connect_signals () {

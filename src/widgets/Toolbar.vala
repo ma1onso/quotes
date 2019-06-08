@@ -113,6 +113,7 @@ namespace Quotes.Widgets {
 				main_window.quote_stack.clipboard.set_text (
 					main_window.quote_stack.quote_data (), -1
 				);
+				main_window.quote_stack.copied_toast.send_notification ();
 			});
 
 			this.share_button.clicked.connect ( () => {
