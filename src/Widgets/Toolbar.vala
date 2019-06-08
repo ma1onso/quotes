@@ -66,7 +66,7 @@ namespace Quotes.Widgets {
 			this.share_popover.set_position (Gtk.PositionType.BOTTOM);
 
 			this.facebook_button = new Gtk.Button.from_icon_name (
-				"online-account-facebook", Gtk.IconSize.LARGE_TOOLBAR
+				"online-account-facebook", Gtk.IconSize.DND
 			);
 			this.facebook_button.tooltip_text = _("Facebook");
 			this.facebook_button.get_style_context ().add_class (
@@ -74,7 +74,7 @@ namespace Quotes.Widgets {
 			);
 
 			this.twitter_button = new Gtk.Button.from_icon_name (
-				"online-account-twitter", Gtk.IconSize.LARGE_TOOLBAR
+				"online-account-twitter", Gtk.IconSize.DND
 			);
 			this.twitter_button.tooltip_text = _("Twitter");
 			this.twitter_button.get_style_context ().add_class (
