@@ -1,4 +1,4 @@
-src/configs/Constants.vala
-src/configs/Properties.vala
-src/widgets/QuoteStack.vala
-src/widgets/Toolbar.vala
+src/Configs/Constants.vala
+src/Configs/Properties.vala
+src/Widgets/QuoteStack.vala
+src/Widgets/Toolbar.vala

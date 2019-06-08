@@ -9,7 +9,7 @@ Build-Depends: debhelper (>= 10.5.1),
                valac (>= 0.16),
                libsoup2.4-dev (>= 2.4),
                libjson-glib-dev (>= 1.0)
-Standards-Version: 4.0.0
+Standards-Version: 4.1.1
 
 Package: com.github.alonsoenrique.quotes
 Architecture: any
