@@ -23,12 +23,14 @@ namespace Quotes.Widgets {
 
 	public class QuoteStack : Gtk.Stack {
 
-		protected Gtk.Box quote_box;
+		protected Gtk.Overlay quote_overlay;
 
+		public Granite.Widgets.Toast copied_toast;
 		public Gtk.Label quote_text;
 		public Gtk.Label quote_author;
 		public Gtk.LinkButton quote_url;
 		public Gtk.Spinner spinner;
+		public Gtk.Box quote_box;
 		public Gtk.Clipboard clipboard;
 
 		public QuoteStack () {
@@ -36,6 +38,8 @@ namespace Quotes.Widgets {
 
 			this.quote_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 			this.quote_box.set_spacing (10);
+
+			this.copied_toast = new Granite.Widgets.Toast (_("Copied to clipboard!"));
 
 			this.quote_text = new Gtk.Label ("...");
 			this.quote_text.set_selectable (true);
@@ -58,10 +62,13 @@ namespace Quotes.Widgets {
 			quote_box.pack_start (this.quote_author);
 			quote_box.pack_start (this.quote_url);
 
+			this.quote_overlay = new Gtk.Overlay ();
+			this.quote_overlay.add_overlay (copied_toast);
+			this.quote_overlay.add_overlay (quote_box);
+
 			// Add widgets to Stack
 			this.add_named (this.spinner, "spinner");
-			this.add_named (quote_box, "quote_box");
-
+			this.add_named (this.quote_overlay, "quote_overlay");
 		}
 
 		public void set_clipboard (Gdk.Display display) {
