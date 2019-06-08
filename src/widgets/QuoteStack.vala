@@ -49,6 +49,8 @@ namespace Quotes.Widgets {
 
 			this.quote_url = new Gtk.LinkButton.with_label ("", "Link to quote");
 			this.quote_url.get_style_context ().add_class ("quote-url");
+			this.quote_url.halign = Gtk.Align.CENTER;
+			this.quote_url.valign = Gtk.Align.CENTER;
 
 			this.spinner = new Gtk.Spinner ();
 			this.spinner.halign = Gtk.Align.CENTER;
