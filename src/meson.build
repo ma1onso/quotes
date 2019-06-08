@@ -1,9 +1,9 @@
 sources = files(
-    'configs/Constants.vala',
-    'configs/Properties.vala',
-    'utils/QuoteClient.vala',
-    'widgets/QuoteStack.vala',
-    'widgets/Toolbar.vala',
+    'Configs/Constants.vala',
+    'Configs/Properties.vala',
+    'Utils/QuoteClient.vala',
+    'Widgets/QuoteStack.vala',
+    'Widgets/Toolbar.vala',
     'Application.vala',
     'Main.vala',
     'MainWindow.vala'
