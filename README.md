@@ -1,7 +1,7 @@
 # Quotes
 Quotes for daily inspiration
 
-![alt text](https://raw.githubusercontent.com/alons45/Quotes/master/data/images/Screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/alons45/Quotes/master/data/Screenshot.png)
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.alonsoenrique.quotes)
 
@@ -9,33 +9,25 @@ Quotes for daily inspiration
 
 [![Pay for quotes](https://cdn4.iconfinder.com/data/icons/simple-peyment-methods/512/paypal-64.png)](https://paypal.me/alonsoenrique)
 
-## Building, Testing, and Installation
+## Building and Installation
 
-You'll need the following dependencies:
-* cmake
-* libgtk-3-dev
+Please make sure you have these dependencies first before building:
+
 * libgranite-dev
-* valac
-* libsoup2.4-dev
+* libgtk-3-dev
 * libjson-glib-dev
+* libsoup2.4-dev
+* meson
+* valac
 
-It's recommended to create a clean build environment
+Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 
-    mkdir build
-    cd build/
+    meson build --prefix=/usr
+    cd build
+    ninja
 
-Run `cmake` to configure the build environment and then `make` to build
+To install, use `ninja install`, then execute with `com.github.alonsoenrique.quotes`
 
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
-
-To install, use `make install`, then execute with `com.github.alonsoenrique.quotes`
-
-    sudo make install
+    sudo ninja install
     com.github.alonsoenrique.quotes
-
-To build .deb file (The deb file should be available in the parent directory of the current directory)
-
-     dpkg-buildpackage -B -tc
-
-`B`: binary-only, only arch-specific files and `tc`: clean source tree when finished
+    

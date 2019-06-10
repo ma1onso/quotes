@@ -20,8 +20,6 @@
 */
 
 using Quotes;
-using Quotes.Configs;
-
 
 namespace Quotes {
 
@@ -29,7 +27,7 @@ namespace Quotes {
 
 		public Application () {
 			Object (
-				application_id: Constants.ID,
+				application_id: "com.github.alonsoenrique.quotes",
 				flags: ApplicationFlags.FLAGS_NONE
 			);
 
@@ -51,4 +49,3 @@ namespace Quotes {
 	}
 
 }
-

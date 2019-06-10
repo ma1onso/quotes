@@ -33,7 +33,7 @@ namespace Quotes {
 
 		public QuoteClient quote_client;
 		public QuoteStack quote_stack;
-		public Toolbar toolbar;
+		public HeaderBar headerbar;
 
 		public signal void search_begin ();
 		public signal void search_end (Json.Object? url, Error? e);
@@ -57,10 +57,10 @@ namespace Quotes {
 			this.quote_stack = new QuoteStack ();
 			this.quote_stack.set_clipboard (this.display);
 
-			this.toolbar = new Toolbar ();
-			this.set_titlebar (this.toolbar);
-			this.toolbar.button_events (this);
-			this.toolbar.social_network_events (this);
+			this.headerbar = new HeaderBar ();
+			this.set_titlebar (this.headerbar);
+			this.headerbar.button_events (this);
+			this.headerbar.social_network_events (this);
 
 			this.add(this.quote_stack);
 
@@ -78,7 +78,7 @@ namespace Quotes {
 
 		private void style_provider () {
 			Gtk.CssProvider css_provider = new Gtk.CssProvider ();
-			css_provider.load_from_resource ("com/github/alonsoenrique/quotes/window.css");
+			css_provider.load_from_resource ("com/github/alonsoenrique/quotes/Application.css");
 			Gtk.StyleContext.add_provider_for_screen (
 				Gdk.Screen.get_default (),
 				css_provider,
@@ -87,8 +87,8 @@ namespace Quotes {
 		}
 
 		protected void on_search_begin () {
-			this.toolbar.refresh_tool_button.sensitive = false;
-			this.toolbar.copy_to_clipboard_button.sensitive = false;
+			this.headerbar.refresh_tool_button.sensitive = false;
+			this.headerbar.copy_to_clipboard_button.sensitive = false;
 
 			if (!this.quote_stack.visible) {
 				this.quote_stack.set_visible (true);
@@ -99,8 +99,8 @@ namespace Quotes {
 		}
 
 		protected void on_search_end (Json.Object? quote, Error? error) {
-			this.toolbar.refresh_tool_button.sensitive = true;
-			this.toolbar.copy_to_clipboard_button.sensitive = true;
+			this.headerbar.refresh_tool_button.sensitive = true;
+			this.headerbar.copy_to_clipboard_button.sensitive = true;
 			this.searching = false;
 
 			if (error != null) {
@@ -122,4 +122,3 @@ namespace Quotes {
 	}
 
 }
-
