@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gresources>
-  <gresource prefix="/com/github/alonsoenrique/quotes">
-    <file alias="window.css" compressed="true">window.css</file>
-  </gresource>
-</gresources>

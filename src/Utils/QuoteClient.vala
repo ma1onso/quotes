@@ -58,4 +58,3 @@ namespace Quotes.Utils {
 	}
 
 }
-

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
+  <gresource prefix="/com/github/alonsoenrique/quotes/">
+    <file alias="Application.css" compressed="true">../Application.css</file>
+  </gresource>
   <gresource prefix="/com/github/alonsoenrique/quotes/icons">
     <file alias="online-account-facebook.svg" compressed="true" preprocess="xml-stripblanks">online-account-facebook.svg</file>
     <file alias="online-account-google-plus.svg" compressed="true" preprocess="xml-stripblanks">online-account-google-plus.svg</file>
@@ -9,4 +12,3 @@
     <file alias="online-account-telegram.svg" compressed="true" preprocess="xml-stripblanks">online-account-telegram.svg</file>
   </gresource>
 </gresources>
-

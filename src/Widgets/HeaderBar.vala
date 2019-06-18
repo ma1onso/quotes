@@ -24,7 +24,7 @@ using Quotes.Configs;
 
 namespace Quotes.Widgets {
 
-	public class Toolbar : Gtk.HeaderBar {
+	public class HeaderBar : Gtk.HeaderBar {
 
 		public Gtk.Grid share_grid;
 		public Gtk.Grid container_share_grid;
@@ -37,7 +37,7 @@ namespace Quotes.Widgets {
 		public Gtk.Button twitter_button;
 		public Gtk.Button google_button;
 
-		public Toolbar () {
+		public HeaderBar () {
 			this.set_title (Properties.TITLE_HEADER_BAR);
 			this.show_close_button = true;
 
@@ -161,4 +161,3 @@ namespace Quotes.Widgets {
 	}
 
 }
-
