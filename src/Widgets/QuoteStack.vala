@@ -65,8 +65,8 @@ namespace Quotes.Widgets {
 			quote_box.pack_start (this.quote_url);
 
 			this.quote_overlay = new Gtk.Overlay ();
-			this.quote_overlay.add_overlay (copied_toast);
 			this.quote_overlay.add_overlay (quote_box);
+			this.quote_overlay.add_overlay (copied_toast);
 
 			// Add widgets to Stack
 			this.add_named (this.spinner, "spinner");
