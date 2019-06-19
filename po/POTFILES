@@ -1,0 +1,3 @@
+src/Configs/Properties.vala
+src/Widgets/HeaderBar.vala
+src/Widgets/QuoteStack.vala
