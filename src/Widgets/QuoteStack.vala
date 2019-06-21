@@ -41,13 +41,13 @@ namespace Quotes.Widgets {
 
 			this.copied_toast = new Granite.Widgets.Toast (_("Copied to clipboard!"));
 
-			this.quote_text = new Gtk.Label ("...");
+			this.quote_text = new Gtk.Label ("…");
 			this.quote_text.set_selectable (true);
 			this.quote_text.set_line_wrap (true);
 			this.quote_text.set_justify (Gtk.Justification.CENTER);
 			this.quote_text.get_style_context ().add_class ("quote-text");
 
-			this.quote_author = new Gtk.Label ("...");
+			this.quote_author = new Gtk.Label ("…");
 			this.quote_author.set_selectable (true);
 			this.quote_author.get_style_context ().add_class ("quote-author");
 
@@ -80,9 +80,9 @@ namespace Quotes.Widgets {
 		}
 
 		public void set_quote_text (string quote_text) {
-			// TODO: recovery quote_text.chomp () implementation when warning... runaway :D
+			// TODO: recovery quote_text.chomp () implementation when warning… runaway :D
 			this.quote_text.set_text (
-				"\"" + quote_text + "\""
+				"🙶 " + quote_text + " 🙷"
 			);
 		}
 
