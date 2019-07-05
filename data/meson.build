@@ -9,7 +9,6 @@ endforeach
 
  social_icons = [
      'online-account-facebook',
-     'online-account-google-plus',
      'online-account-reddit',
      'online-account-telegram',
      'online-account-tumblr',
