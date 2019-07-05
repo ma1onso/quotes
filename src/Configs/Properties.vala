@@ -29,7 +29,7 @@ namespace Quotes.Configs {
 
         public abstract const string TITLE_HEADER_BAR = _("Quotes");
         public abstract const string CLOSE = _("Close");
-        public abstract const string WELCOME = (_("Welcome"));
+        public abstract const string WELCOME = _("Welcome");
 
     }
 
