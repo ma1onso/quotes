@@ -45,21 +45,21 @@ namespace Quotes.Widgets {
 			);
 			this.refresh_tool_button = new Gtk.ToolButton (refresh_icon, null);
 			this.refresh_tool_button.is_important = true;
-			this.refresh_tool_button.set_tooltip_text ("Get another random quote");
+			this.refresh_tool_button.set_tooltip_text (_("Get another random quote"));
 			this.add (refresh_tool_button);
 
 			Gtk.Image copy_icon = new Gtk.Image.from_icon_name (
 				"edit-copy", Gtk.IconSize.SMALL_TOOLBAR
 			);
 			this.copy_to_clipboard_button = new Gtk.ToolButton (copy_icon, null);
-			this.copy_to_clipboard_button.set_tooltip_text ("Copy to clipboard");
+			this.copy_to_clipboard_button.set_tooltip_text (_("Copy to clipboard"));
 			this.add (this.copy_to_clipboard_button);
 
 			Gtk.Image share_icon = new Gtk.Image.from_icon_name (
 				"emblem-shared", Gtk.IconSize.SMALL_TOOLBAR
 			);
 			this.share_button = new Gtk.ToolButton (share_icon, null);
-			this.share_button.set_tooltip_text ("Share in social networks");
+			this.share_button.set_tooltip_text (_("Share in social networks"));
 			this.add (this.share_button);
 
 			this.share_popover = new Gtk.Popover (this.share_button);
@@ -68,7 +68,7 @@ namespace Quotes.Widgets {
 			this.facebook_button = new Gtk.Button.from_icon_name (
 				"online-account-facebook", Gtk.IconSize.DND
 			);
-			this.facebook_button.tooltip_text = "Facebook";
+			this.facebook_button.tooltip_text = _("Facebook");
 			this.facebook_button.get_style_context ().add_class (
 				Gtk.STYLE_CLASS_FLAT
 			);
@@ -76,7 +76,7 @@ namespace Quotes.Widgets {
 			this.twitter_button = new Gtk.Button.from_icon_name (
 				"online-account-twitter", Gtk.IconSize.DND
 			);
-			this.twitter_button.tooltip_text = "Twitter";
+			this.twitter_button.tooltip_text = _("Twitter");
 			this.twitter_button.get_style_context ().add_class (
 				Gtk.STYLE_CLASS_FLAT
 			);
