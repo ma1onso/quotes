@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Alonso Enrique <alons45@gmail.com> -->
 <component type="desktop">
-    <id>com.github.alonsoenrique.quotes</id>
+    <id>com.github.ma1onso.quotes</id>
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>GPL-3.0+</project_license>
     <name>Quotes</name>
@@ -15,7 +15,7 @@
         </ul>
     </description>
     <provides>
-        <binary>com.github.alonsoenrique.quotes</binary>
+        <binary>com.github.ma1onso.quotes</binary>
     </provides>
     <releases>
         <release version="0.5.6" date="2017-10-11">

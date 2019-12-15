@@ -20,7 +20,7 @@ Please make sure you have these dependencies first before building:
 * meson
 * valac
 
-Install with: `sudo apt instal 
+Install with: `sudo apt install libgranite-dev libgtk-3-dev libjson-glib-dev libsoup2.4-dev meson valac`
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 
