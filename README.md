@@ -20,6 +20,8 @@ Please make sure you have these dependencies first before building:
 * meson
 * valac
 
+Install with: `sudo apt instal 
+
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 
     meson build --prefix=/usr
