@@ -136,7 +136,7 @@ namespace Quotes.Widgets {
 
 		public void social_network_events (MainWindow main_window) {
 			this.facebook_button.clicked.connect (() => {
-				this.open_facebook_url ("https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", main_window.quote_stack.quote_url.get_uri(), main_window.quote_stack.quote_data ());
+				this.open_facebook_url ("https://www.facebook.com/dialog/share?app_id=495981564365228&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", main_window.quote_stack.quote_url.get_uri(), main_window.quote_stack.quote_data ());
 			});
 
 			this.twitter_button.clicked.connect (() => {
