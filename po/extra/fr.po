@@ -17,58 +17,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: data/com.github.alonsoenrique.quotes.desktop.in:3
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:7
+#: data/com.github.ma1onso.quotes.desktop.in:3
+#: data/com.github.ma1onso.quotes.appdata.xml.in:7
 msgid "Quotes"
 msgstr "Citations"
 
-#: data/com.github.alonsoenrique.quotes.desktop.in:4
+#: data/com.github.ma1onso.quotes.desktop.in:4
 msgid "Quotes App"
 msgstr "Applications Citations"
 
-#: data/com.github.alonsoenrique.quotes.desktop.in:5
+#: data/com.github.ma1onso.quotes.desktop.in:5
 msgid "Get quotes for daily inspiration"
 msgstr "Obtenez des citations pour une inspiration quotidienne"
 
-#: data/com.github.alonsoenrique.quotes.desktop.in:8
-msgid "com.github.alonsoenrique.quotes"
-msgstr "com.github.alonsoenrique.quotes"
+#: data/com.github.ma1onso.quotes.desktop.in:8
+msgid "com.github.ma1onso.quotes"
+msgstr "com.github.ma1onso.quotes"
 
-#: data/com.github.alonsoenrique.quotes.desktop.in:12
+#: data/com.github.ma1onso.quotes.desktop.in:12
 msgid "Quotes;Inspiration;"
 msgstr "Citations;Inspiration;"
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:8
+#: data/com.github.ma1onso.quotes.appdata.xml.in:8
 msgid "Quotes for daily inspiration"
 msgstr "Des citations pour une inspiration quotidienne"
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:10
+#: data/com.github.ma1onso.quotes.appdata.xml.in:10
 msgid ""
 "Get random quotes for daily inspiration, share and get another quotes ;), be "
 "happy."
 msgstr ""
 "Obtenez des citations aléatoires pour une inspiration quotidienne, partagez et obtenez d'autres citations ;), soyez heureux."
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:12
+#: data/com.github.ma1onso.quotes.appdata.xml.in:12
 msgid "Get random quotes"
 msgstr "Obtenez des citations aléatoires"
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:13
+#: data/com.github.ma1onso.quotes.appdata.xml.in:13
 msgid "Copy to clipboard"
 msgstr "Copiez dans le presse-papiers"
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:14
+#: data/com.github.ma1onso.quotes.appdata.xml.in:14
 msgid "Share in social networks"
 msgstr "Partagez vers les réseaux sociaux"
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:23
+#: data/com.github.ma1onso.quotes.appdata.xml.in:23
 msgid "Release: Fix AppStream data"
 msgstr "Version : Correction des métadonnées de l'application"
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:25
+#: data/com.github.ma1onso.quotes.appdata.xml.in:25
 msgid "Fix AppStream screenshot reference"
 msgstr "Correction de la capture d'écran dans les métadonnées de l'application"
 
-#: data/com.github.alonsoenrique.quotes.appdata.xml.in:64
+#: data/com.github.ma1onso.quotes.appdata.xml.in:64
 msgid "Alonso Enrique"
 msgstr "Alonso Enrique"

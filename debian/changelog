@@ -1,10 +1,10 @@
-com.github.alonsoenrique.quotes (0.5.6) xenial; urgency=low
+com.github.ma1onso.quotes (0.5.6) xenial; urgency=low
 
   * Fix AppStream screenshot reference
 
  -- Alonso Enrique <alons45@gmail.com>  Wed, 11 Oct 2017 18:55:54 -0500
 
-com.github.alonsoenrique.quotes (0.5) xenial; urgency=low
+com.github.ma1onso.quotes (0.5) xenial; urgency=low
 
   * Initial Release.
 

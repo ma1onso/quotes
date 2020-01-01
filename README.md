@@ -3,7 +3,7 @@ Quotes for daily inspiration
 
 ![Screenshot](https://raw.githubusercontent.com/alons45/Quotes/master/data/Screenshot.png)
 
-[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.alonsoenrique.quotes)
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ma1onso.quotes)
 
 ## Pay for Quotes
 
@@ -28,8 +28,8 @@ Run `meson build` to configure the build environment. Change to the build direct
     cd build
     ninja
 
-To install, use `ninja install`, then execute with `com.github.alonsoenrique.quotes`
+To install, use `ninja install`, then execute with `com.github.ma1onso.quotes`
 
     sudo ninja install
-    com.github.alonsoenrique.quotes
+    com.github.ma1onso.quotes
     

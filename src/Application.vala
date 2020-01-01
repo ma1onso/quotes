@@ -27,7 +27,7 @@ namespace Quotes {
 
 		public Application () {
 			Object (
-				application_id: "com.github.alonsoenrique.quotes",
+				application_id: "com.github.ma1onso.quotes",
 				flags: ApplicationFlags.FLAGS_NONE
 			);
 
