@@ -1,7 +1,7 @@
 # Quotes
 Quotes for daily inspiration
 
-![Screenshot](https://raw.githubusercontent.com/alons45/Quotes/master/data/Screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/ma1onso/Quotes/master/data/Screenshot.png)
 
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ma1onso.quotes)
 
