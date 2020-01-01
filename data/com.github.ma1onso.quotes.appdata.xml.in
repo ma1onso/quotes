@@ -18,6 +18,16 @@
         <binary>com.github.ma1onso.quotes</binary>
     </provides>
     <releases>
+        <release version="0.8.0" date="2019-01-01">
+            <description>
+                <p>Release: The come back</p>
+                <ul>
+                    <li>Fix share with facebook button</li>
+                    <li>Fix share with twitter button</li>
+                    <li>Update screenshot</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.5.6" date="2017-10-11">
             <description>
                 <p>Release: Fix AppStream data</p>
