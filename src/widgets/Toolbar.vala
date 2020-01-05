@@ -82,19 +82,10 @@ namespace Quotes.Widgets {
 				Gtk.STYLE_CLASS_FLAT
 			);
 
-			this.google_button = new Gtk.Button.from_icon_name (
-				"online-account-google-plus", Gtk.IconSize.DND
-			);
-			this.google_button.tooltip_text = "Google Plus";
-			this.google_button.get_style_context ().add_class (
-				Gtk.STYLE_CLASS_FLAT
-			);
-
 			share_grid = new Gtk.Grid ();
 			share_grid.margin = 6;
 			share_grid.add (this.facebook_button);
 			share_grid.add (this.twitter_button);
-			share_grid.add (this.google_button);
 
 			container_share_grid = new Gtk.Grid ();
 			container_share_grid.orientation = Gtk.Orientation.VERTICAL;
@@ -111,7 +102,7 @@ namespace Quotes.Widgets {
 
 			this.copy_to_clipboard_button.clicked.connect ( () => {
 				main_window.quote_stack.clipboard.set_text (
-					main_window.quote_stack.quote_data (), -1
+					main_window.quote_stack.quote_data_with_link (), -1
 				);
 			});
 
@@ -129,7 +120,7 @@ namespace Quotes.Widgets {
 		    this.share_popover.hide ();
 		}
 
-		public void open_facebook_url (string social_network_url, string quote_uri, string quote_data) {
+		public void open_url_advance (string social_network_url, string quote_uri, string quote_data) {
 			try {
 				AppInfo.launch_default_for_uri (
 					social_network_url.printf(
@@ -145,15 +136,11 @@ namespace Quotes.Widgets {
 
 		public void social_network_events (MainWindow main_window) {
 			this.facebook_button.clicked.connect (() => {
-				this.open_facebook_url ("https://www.facebook.com/dialog/share?app_id=145634995501895&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", main_window.quote_stack.quote_url.get_uri(), main_window.quote_stack.quote_data ());
+				this.open_url_advance ("https://www.facebook.com/dialog/share?app_id=495981564365228&dialog=popup&redirect_uri=https://facebook.com&href=%s&quote=%s", main_window.quote_stack.quote_url.get_uri(), main_window.quote_stack.quote_data ());
 			});
 
 			this.twitter_button.clicked.connect (() => {
-				this.open_url ("http://twitter.com/home/?status=%s", main_window.quote_stack.quote_data ());
-			});
-
-			this.google_button.clicked.connect (() => {
-				this.open_url ("https://plus.google.com/share?text=%s", main_window.quote_stack.quote_data ());
+				this.open_url_advance ("https://twitter.com/intent/tweet?url=%s&text=%s",  main_window.quote_stack.quote_url.get_uri(), main_window.quote_stack.quote_data ());
 			});
 		}
 

@@ -89,10 +89,17 @@ namespace Quotes.Widgets {
 			this.quote_url.set_uri (url);
 		}
 
-		public string quote_data () {
+		public string quote_data_with_link () {
 			string quote_data = this.quote_text.get_text () + " " +
 									this.quote_author.get_text () + " " +
 									this.quote_url.get_uri ();
+
+			return quote_data;
+		}
+
+		public string quote_data () {
+			string quote_data = this.quote_text.get_text () + " " +
+									this.quote_author.get_text ();
 
 			return quote_data;
 		}
