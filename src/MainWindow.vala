@@ -78,7 +78,7 @@ namespace Quotes {
 
 		private void style_provider () {
 			Gtk.CssProvider css_provider = new Gtk.CssProvider ();
-			css_provider.load_from_resource ("com/github/alonsoenrique/quotes/window.css");
+			css_provider.load_from_resource ("com/github/ma1onso/quotes/window.css");
 			Gtk.StyleContext.add_provider_for_screen (
 				Gdk.Screen.get_default (),
 				css_provider,

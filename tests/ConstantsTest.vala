@@ -23,13 +23,13 @@ public class ConstantsTest : TestCase {
         assert (Constants.APP_ICON == "com.github.ma1onso.quotes");
         assert (Constants.ABOUT_COMMENTS == "Quotes for daily inspiration");
         assert (Constants.TRANSLATOR_CREDITS == "Github Translators");
-        assert (Constants.MAIN_URL == "https://github.com/AlonsoEnrique/Quotes");
-        assert (Constants.BUG_URL == "https://github.com/AlonsoEnrique/Quotes/issues");
-        assert (Constants.HELP_URL == "https://github.com/AlonsoEnrique/Quotes/wiki");
-        assert (Constants.TRANSLATE_URL == "https://github.com/AlonsoEnrique/Quotes");
+        assert (Constants.MAIN_URL == "https://github.com/ma1onso/Quotes");
+        assert (Constants.BUG_URL == "https://github.com/ma1onso/Quotes/issues");
+        assert (Constants.HELP_URL == "https://github.com/ma1onso/Quotes/wiki");
+        assert (Constants.TRANSLATE_URL == "https://github.com/ma1onso/Quotes");
         assert (Constants.TEXT_FOR_ABOUT_DIALOG_WEBSITE == "Website");
-        assert (Constants.TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL == "https://github.com/AlonsoEnrique/");
-        assert (Constants.URL_CSS == "com/github/alonsoenrique/quotes/window.css");
+        assert (Constants.TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL == "https://github.com/ma1onso/");
+        assert (Constants.URL_CSS == "com/github/ma1onso/quotes/window.css");
         assert (Constants.ABOUT_AUTHORS [0] == "Alonso Enrique <alons45@gmail.com>");
         assert (Constants.ABOUT_LICENSE_TYPE ==  Gtk.License.GPL_3_0);
     }

@@ -31,13 +31,13 @@ namespace Quotes.Configs {
         public abstract const string APP_ICON = "com.github.ma1onso.quotes";
         public abstract const string ABOUT_COMMENTS = "Quotes for daily inspiration";
         public abstract const string TRANSLATOR_CREDITS = "Github Translators";
-        public abstract const string MAIN_URL = "https://github.com/AlonsoEnrique/Quotes";
-        public abstract const string BUG_URL = "https://github.com/AlonsoEnrique/Quotes/issues";
-        public abstract const string HELP_URL = "https://github.com/AlonsoEnrique/Quotes/wiki";
-        public abstract const string TRANSLATE_URL = "https://github.com/AlonsoEnrique/Quotes";
+        public abstract const string MAIN_URL = "https://github.com/ma1onso/Quotes";
+        public abstract const string BUG_URL = "https://github.com/ma1onso/Quotes/issues";
+        public abstract const string HELP_URL = "https://github.com/ma1onso/Quotes/wiki";
+        public abstract const string TRANSLATE_URL = "https://github.com/ma1onso/Quotes";
         public abstract const string TEXT_FOR_ABOUT_DIALOG_WEBSITE = "Website";
-        public abstract const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://github.com/AlonsoEnrique/";
-        public abstract const string URL_CSS = "com/github/alonsoenrique/quotes/window.css";
+        public abstract const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://github.com/ma1onso/";
+        public abstract const string URL_CSS = "com/github/ma1onso/quotes/window.css";
         public abstract const string [] ABOUT_AUTHORS = { "Alonso Enrique <alons45@gmail.com>" };
         public abstract const Gtk.License ABOUT_LICENSE_TYPE = Gtk.License.GPL_3_0;
 

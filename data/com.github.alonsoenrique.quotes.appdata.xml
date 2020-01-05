@@ -29,7 +29,7 @@
     </releases>
     <screenshots>
         <screenshot type="default">
-            <image>https://raw.githubusercontent.com/AlonsoEnrique/Quotes/master/data/images/Screenshot.png</image>
+            <image>https://raw.githubusercontent.com/ma1onso/Quotes/master/data/images/Screenshot.png</image>
         </screenshot>
     </screenshots>
     <content_rating type="oars-1.1">
@@ -62,8 +62,8 @@
         <content_attribute id="money-gambling">none</content_attribute>
     </content_rating>
     <developer_name>Alonso Enrique</developer_name>
-    <url type="homepage">https://github.com/AlonsoEnrique</url>
-    <url type="bugtracker">https://github.com/AlonsoEnrique/Quotes/issues</url>
+    <url type="homepage">https://github.com/ma1onso</url>
+    <url type="bugtracker">https://github.com/ma1onso/Quotes/issues</url>
     <custom>
         <value key="x-appcenter-color-primary">#6F8A91</value>
         <value key="x-appcenter-color-primary-text">#121212</value>
