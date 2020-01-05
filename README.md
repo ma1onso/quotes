@@ -3,7 +3,7 @@ Quotes for daily inspiration
 
 ![alt text](https://raw.githubusercontent.com/alons45/Quotes/master/data/images/Screenshot.png)
 
-[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.alonsoenrique.quotes)
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.ma1onso.quotes)
 
 ## Pay for quotes
 
@@ -29,10 +29,10 @@ Run `cmake` to configure the build environment and then `make` to build
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     make
 
-To install, use `make install`, then execute with `com.github.alonsoenrique.quotes`
+To install, use `make install`, then execute with `com.github.ma1onso.quotes`
 
     sudo make install
-    com.github.alonsoenrique.quotes
+    com.github.ma1onso.quotes
 
 To build .deb file (The deb file should be available in the parent directory of the current directory)
 

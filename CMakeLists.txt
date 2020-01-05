@@ -1,13 +1,13 @@
 CMAKE_MINIMUM_REQUIRED (VERSION 3.0)
 
-PROJECT (com.github.alonsoenrique.quotes)
+PROJECT (com.github.ma1onso.quotes)
 
 LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/src)
 
 SET (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
-SET (APP_ID "com.github.alonsoenrique.quotes")
-SET (EXEC_NAME "com.github.alonsoenrique.quotes")
+SET (APP_ID "com.github.ma1onso.quotes")
+SET (EXEC_NAME "com.github.ma1onso.quotes")
 SET (RELEASE_NAME "Quotes for daily inspiration")
 SET (VERSION "0.5.9")
 SET (VERSION_INFO "Release")
@@ -51,7 +51,7 @@ GLIB_COMPILE_RESOURCES (GLIB_RESOURCES_ICONS SOURCE data/images/icons/icons.gres
 GLIB_COMPILE_RESOURCES (GLIB_RESOURCES_CSS SOURCE data/css/css.gresource.xml)
 
 INCLUDE (GSettings)
-ADD_SCHEMA ("data/com.github.alonsoenrique.quotes.gschema.xml")
+ADD_SCHEMA ("data/com.github.ma1onso.quotes.gschema.xml")
 
 # tell cmake what to call the executable we just made
 ADD_EXECUTABLE (${EXEC_NAME} ${VALA_C} ${GLIB_RESOURCES_ICONS} ${GLIB_RESOURCES_CSS})

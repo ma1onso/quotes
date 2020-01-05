@@ -28,7 +28,7 @@ namespace Quotes.Configs {
         public abstract const string VERSION = "@VERSION@";
         public abstract const string PROGRAME_NAME = "Quotes";
         public abstract const string APP_YEARS = "2017";
-        public abstract const string APP_ICON = "com.github.alonsoenrique.quotes";
+        public abstract const string APP_ICON = "com.github.ma1onso.quotes";
         public abstract const string ABOUT_COMMENTS = "Quotes for daily inspiration";
         public abstract const string TRANSLATOR_CREDITS = "Github Translators";
         public abstract const string MAIN_URL = "https://github.com/AlonsoEnrique/Quotes";

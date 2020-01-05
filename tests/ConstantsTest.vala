@@ -16,11 +16,11 @@ public class ConstantsTest : TestCase {
     }
 
     public void test_constants () {
-        assert (Constants.ID == "com.github.alonsoenrique.quotes");
+        assert (Constants.ID == "com.github.ma1onso.quotes");
         assert (Constants.VERSION == "0.5.6");
         assert (Constants.PROGRAME_NAME == "Quotes");
         assert (Constants.APP_YEARS == "2017");
-        assert (Constants.APP_ICON == "com.github.alonsoenrique.quotes");
+        assert (Constants.APP_ICON == "com.github.ma1onso.quotes");
         assert (Constants.ABOUT_COMMENTS == "Quotes for daily inspiration");
         assert (Constants.TRANSLATOR_CREDITS == "Github Translators");
         assert (Constants.MAIN_URL == "https://github.com/AlonsoEnrique/Quotes");

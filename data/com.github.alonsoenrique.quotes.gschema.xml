@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
 
-	<schema id="com.github.alonsoenrique.quotes" path="/com/github/alonsoenrique/quotes/">
+	<schema id="com.github.ma1onso.quotes" path="/com/github/alonsoenrique/quotes/">
 		<key name="window-x" type="i">
 			<default>-1</default>
 			<summary>Most recent x position of Quotes</summary>

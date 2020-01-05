@@ -1,4 +1,4 @@
-Source: com.github.alonsoenrique.quotes
+Source: com.github.ma1onso.quotes
 Section: x11
 Priority: extra
 Maintainer: Alonso Enrique <alons45@gmail.com>
@@ -11,7 +11,7 @@ Build-Depends: cmake (>= 2.8),
                libjson-glib-dev (>= 1.0)
 Standards-Version: 3.9.3
 
-Package: com.github.alonsoenrique.quotes
+Package: com.github.ma1onso.quotes
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Get random quotes for daily inspiration
