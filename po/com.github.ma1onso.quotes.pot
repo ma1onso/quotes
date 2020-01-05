@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ma1onso.quotes package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ma1onso.quotes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-11 19:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Configs/Properties.vala:30
+msgid "Quotes"
+msgstr ""
+
+#: src/Configs/Properties.vala:31
+msgid "Close"
+msgstr ""
+
+#: src/Configs/Properties.vala:32
+msgid "Welcome"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:48
+msgid "Get another random quote"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:55
+msgid "Copy to clipboard"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:62
+msgid "Share in social networks"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:71
+msgid "Facebook"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:79
+msgid "Twitter"
+msgstr ""
+
+#: src/Widgets/QuoteStack.vala:42
+msgid "Copied to clipboard!"
+msgstr ""
+
+#: src/Widgets/QuoteStack.vala:54
+msgid "Link to quote"
+msgstr ""
+
+#: src/Widgets/QuoteStack.vala:93
+msgid "Anonymous author"
+msgstr ""
