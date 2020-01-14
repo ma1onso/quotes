@@ -1,3 +1,10 @@
+com.github.ma1onso.quotes (0.9.1) xenial; urgency=low
+
+  * New icon (thanks @Fatih20)
+  * Thanks also to:  @meisenzahl, @NathanBnm, @ryonakano @JMoerman for translations and bugfixes.
+
+ -- Alonso Enrique <alons45@gmail.com>  Wed, 14 Jan 2019 15:40:54 -0500
+
 com.github.ma1onso.quotes (0.8.0) xenial; urgency=low
 
   * Fix share with facebook button

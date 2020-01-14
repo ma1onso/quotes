@@ -18,6 +18,15 @@
         <binary>com.github.ma1onso.quotes</binary>
     </provides>
     <releases>
+        <release version="0.9.1" date="2019-01-14">
+            <description>
+                <p>Release: New icon</p>
+                <ul>
+                    <li>New icon (thanks @Fatih20)</li>
+                    <li>Thanks also to:  @meisenzahl, @NathanBnm, @ryonakano @JMoerman for translations and bugfixes</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.8.0" date="2019-01-01">
             <description>
                 <p>Release: The come back</p>
