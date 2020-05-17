@@ -12,7 +12,7 @@
    width="128"
    height="128"
    id="svg3049"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.5 (0.92.5+68)"
    sodipodi:docname="com.github.alonsoenrique.quotes.svg">
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -28,8 +28,8 @@
      id="namedview51"
      showgrid="true"
      inkscape:zoom="5.2149125"
-     inkscape:cx="5.0832551"
-     inkscape:cy="68.707847"
+     inkscape:cx="26.389646"
+     inkscape:cy="59.092165"
      inkscape:window-x="0"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
@@ -368,7 +368,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -376,7 +376,8 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 1"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     style="display:none">
     <rect
        style="opacity:1;fill:#d4d4d4;fill-opacity:0.20930236;stroke:none;stroke-width:6.19999981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect960"
