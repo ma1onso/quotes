@@ -18,6 +18,14 @@
         <binary>com.github.ma1onso.quotes</binary>
     </provides>
     <releases>
+        <release version="0.9.9" date="2019-05-31">
+            <description>
+                <p>Release: Fix icon background</p>
+                <ul>
+                    <li>Fix author (@Fatih20)</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.9.1" date="2019-01-14">
             <description>
                 <p>Release: New icon</p>
