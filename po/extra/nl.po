@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-11 19:30+0200\n"
+"PO-Revision-Date: 2020-08-20 20:29+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: data/com.github.ma1onso.quotes.desktop.in:3
+#: data/com.github.ma1onso.quotes.appdata.xml.in:7
+msgid "Quotes"
+msgstr "Citaten"
+
+#: data/com.github.ma1onso.quotes.desktop.in:4
+msgid "Quotes App"
+msgstr "Citaten-toepassing"
+
+#: data/com.github.ma1onso.quotes.desktop.in:5
+msgid "Get quotes for daily inspiration"
+msgstr "Citaten voor dagelijkse inspiratie"
+
+#: data/com.github.ma1onso.quotes.desktop.in:8
+msgid "com.github.ma1onso.quotes"
+msgstr "com.github.ma1onso.quotes"
+
+#: data/com.github.ma1onso.quotes.desktop.in:12
+msgid "Quotes;Inspiration;"
+msgstr "Citaten;Inspiratie;"
+
+#: data/com.github.ma1onso.quotes.appdata.xml.in:8
+msgid "Quotes for daily inspiration"
+msgstr "Citaten voor dagelijkse inspiratie"
+
+#: data/com.github.ma1onso.quotes.appdata.xml.in:10
+msgid ""
+"Get random quotes for daily inspiration, share and get another quotes ;), be "
+"happy."
+msgstr ""
+"Toont willekeurige citaten voor dagelijkse inspiratie en biedt de "
+"mogelijkheid tot delen. Wees gelukkig :)"
+
+#: data/com.github.ma1onso.quotes.appdata.xml.in:12
+msgid "Get random quotes"
+msgstr "Toont willekeurige citaten"
+
+#: data/com.github.ma1onso.quotes.appdata.xml.in:13
+msgid "Copy to clipboard"
+msgstr "Kopiëren naar klembord"
+
+#: data/com.github.ma1onso.quotes.appdata.xml.in:14
+msgid "Share in social networks"
+msgstr "Delen op sociale media"
+
+#: data/com.github.ma1onso.quotes.appdata.xml.in:23
+msgid "Release: Fix AppStream data"
+msgstr "Uitgave: AppStream-gegevens gerepareerd"
+
+#: data/com.github.ma1onso.quotes.appdata.xml.in:25
+msgid "Fix AppStream screenshot reference"
+msgstr "AppStream-schermfotoverwijzing gerepareerd"
+
+#: data/com.github.ma1onso.quotes.appdata.xml.in:64
+msgid "Alonso Enrique"
+msgstr "Alonso Enrique"
