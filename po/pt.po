@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.ma1onso.quotes package.
+# André Barata <andretiagob@protonmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.ma1onso.quotes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-11 19:29+0200\n"
+"PO-Revision-Date: 2020-08-25 16:27+0100\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: André Barata <andretiagob@protonmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pt\n"
+
+#: src/Configs/Properties.vala:30
+msgid "Quotes"
+msgstr "Citações"
+
+#: src/Configs/Properties.vala:31
+msgid "Close"
+msgstr "Fechar"
+
+#: src/Configs/Properties.vala:32
+msgid "Welcome"
+msgstr "Bem-VIndo"
+
+#: src/Widgets/HeaderBar.vala:48
+msgid "Get another random quote"
+msgstr "Obtenha outra citação aleatória"
+
+#: src/Widgets/HeaderBar.vala:55
+msgid "Copy to clipboard"
+msgstr "Copiar para área de transferência"
+
+#: src/Widgets/HeaderBar.vala:62
+msgid "Share in social networks"
+msgstr "Partilhar nas redes sociais"
+
+#: src/Widgets/HeaderBar.vala:71
+msgid "Facebook"
+msgstr "Facebook"
+
+#: src/Widgets/HeaderBar.vala:79
+msgid "Twitter"
+msgstr "Twitter"
+
+#: src/Widgets/QuoteStack.vala:42
+msgid "Copied to clipboard!"
+msgstr "Copiado para a área de transferência!"
+
+#: src/Widgets/QuoteStack.vala:54
+msgid "Link to quote"
+msgstr "Ligação para a citação"
+
+#: src/Widgets/QuoteStack.vala:93
+msgid "Anonymous author"
+msgstr "Auto anónimo"
